@@ -145,7 +145,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="col-auto">
-                        <label className="sr-only" for="subscribeEmail">
+                        <label className="sr-only" htmlFor="subscribeEmail">
                             Email address
                         </label>
                         <div className="input-group mb-2">

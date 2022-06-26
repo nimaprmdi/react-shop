@@ -1,5 +1,5 @@
 import React from "react";
-import Categories from "../components/Categories";
+import FeaturedCategories from "../components/FeaturedCategories";
 import FeaturedProducts from "../components/FeaturedProducts";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -12,7 +12,7 @@ const Home = () => {
             <Navbar />
             <Header />
             <Hero />
-            <Categories />
+            <FeaturedCategories />
             <FeaturedProducts />
             <Footer />
         </div>

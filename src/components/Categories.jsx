@@ -1,47 +1,80 @@
 import React from "react";
-import img_cat_1 from "../assets/images/category_img_01.jpg";
-import img_cat_2 from "../assets/images/category_img_02.jpg";
-import img_cat_3 from "../assets/images/category_img_03.jpg";
+import { Icon } from "@iconify/react";
+import { Accordion } from "react-bootstrap";
+
+import AccordionItem from "react-bootstrap/esm/AccordionItem";
+import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
+import AccordionBody from "react-bootstrap/esm/AccordionBody";
 
 const Categories = () => {
     return (
-        <section className="container py-5">
-            <div className="row text-center pt-3">
-                <div className="col-lg-6 m-auto">
-                    <h1 className="h1">Categories of The Month</h1>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-12 col-md-4 p-5 mt-3">
-                    <a href="#">
-                        <img src={img_cat_1} className="rounded-circle img-fluid border" />
-                    </a>
-                    <h5 className="text-center mt-3 mb-3">Watches</h5>
-                    <p className="text-center">
-                        <a className="btn btn-success">Go Shop</a>
-                    </p>
-                </div>
-                <div className="col-12 col-md-4 p-5 mt-3">
-                    <a href="#">
-                        <img src={img_cat_2} className="rounded-circle img-fluid border" />
-                    </a>
-                    <h2 className="h5 text-center mt-3 mb-3">Shoes</h2>
-                    <p className="text-center">
-                        <a className="btn btn-success">Go Shop</a>
-                    </p>
-                </div>
-                <div className="col-12 col-md-4 p-5 mt-3">
-                    <a href="#">
-                        <img src={img_cat_3} className="rounded-circle img-fluid border" />
-                    </a>
-                    <h2 className="h5 text-center mt-3 mb-3">Accessories</h2>
-                    <p className="text-center">
-                        <a className="btn btn-success">Go Shop</a>
-                    </p>
-                </div>
-            </div>
-        </section>
+        <div className="c-categories">
+            <h1 className="h2 pb-4">Categories</h1>
+            <ul className="list-unstyled templatemo-accordion">
+                <Accordion
+                // defaultActiveKey={["0"]}
+                //alwaysOpen
+                >
+                    <Accordion.Item eventKey="0">
+                        <Accordion.Header className="collapsed d-flex justify-content-between h3 text-decoration-none">Gender</Accordion.Header>
+                        <Accordion.Body className="list-unstyled pl-3">
+                            <ul className="">
+                                <li>
+                                    <a className="text-decoration-none" href="#">
+                                        Men
+                                    </a>
+                                </li>
+                                <li>
+                                    <a className="text-decoration-none" href="#">
+                                        Women
+                                    </a>
+                                </li>
+                            </ul>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="1">
+                        <Accordion.Header className="collapsed d-flex justify-content-between h3 text-decoration-none">Sale</Accordion.Header>
+                        <Accordion.Body className="list-unstyled pl-3">
+                            <ul className="">
+                                <li>
+                                    <a className="text-decoration-none" href="#">
+                                        Sport
+                                    </a>
+                                </li>
+                                <li>
+                                    <a className="text-decoration-none" href="#">
+                                        Luxury
+                                    </a>
+                                </li>
+                            </ul>
+                        </Accordion.Body>
+                    </Accordion.Item>
+
+                    <Accordion.Item eventKey="2">
+                        <Accordion.Header className="collapsed d-flex justify-content-between h3 text-decoration-none">Products</Accordion.Header>
+                        <Accordion.Body className="list-unstyled pl-3">
+                            <ul className="">
+                                <li>
+                                    <a className="text-decoration-none" href="#">
+                                        Bag
+                                    </a>
+                                </li>
+                                <li>
+                                    <a className="text-decoration-none" href="#">
+                                        Sweather
+                                    </a>
+                                </li>
+                                <li>
+                                    <a className="text-decoration-none" href="#">
+                                        Sunglass
+                                    </a>
+                                </li>
+                            </ul>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
+            </ul>
+        </div>
     );
 };
 
