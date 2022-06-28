@@ -1,0 +1,127 @@
+[
+    {
+        "slider": [
+            {
+                "primaryTitle": "Zay eCommerce",
+                "title": "Tiny and Perfect eCommerce Template",
+                "description": "Zay Shop is an eCommerce HTML5 CSS template with latest version of Bootstrap 5 (beta 1). This template is 100% free provided byTemplateMowebsite. Image credits go toFreepik Stories,Unsplash andIcons 8.",
+                "image": "http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg"
+            },
+            {
+                "primaryTitle": "Proident occaecat",
+                "title": "Aliquip ex ea commodo consequat",
+                "description": "You are permitted to use this Zay CSS template for your commercial websites. You are not permitted to re-distribute the template ZIP file in any kind of template collection websites.",
+                "image": "http://portfoliom.ir/wp-content/uploads/2022/06/img2.jpg"
+            },
+            {
+                "primaryTitle": "Repr in voluptate",
+                "title": "Ullamco laboris nisi ut",
+                "description": "We bring you 100% free CSS templates for your websites. If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.",
+                "image": "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg"
+            }
+        ],
+        "products": {
+            "items": [
+                {
+                    "id": 1,
+                    "featuredImage": "http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg",
+                    "sliderImages": ["http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg", "http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg"],
+                    "name": "Product 1",
+                    "price": 50,
+                    "category": ["Bag", "shoes"],
+                    "tags": ["hermes", "bijan", "bugatti"],
+                    "description": "desc",
+                    "sizes": ["xs", "md"],
+                    "rating": 5,
+                    "brand": "hermes",
+                    "colors": ["red", "green"]
+                },
+                {
+                    "id": 2,
+                    "featuredImage": "http://portfoliom.ir/wp-content/uploads/2022/06/img2.jpg",
+                    "sliderImages": ["http://portfoliom.ir/wp-content/uploads/2022/06/img2.jpg", "http://portfoliom.ir/wp-content/uploads/2022/06/img2.jpg"],
+                    "name": "Product 2",
+                    "price": 30,
+                    "category": ["Bag", "handy"],
+                    "tags": ["hermes", "bijan", "bugatti"],
+                    "description": "desc",
+                    "sizes": ["xs", "md"],
+                    "rating": 2,
+                    "brand": "hermes",
+                    "colors": ["red", "blue"]
+                },
+                {
+                    "id": 3,
+                    "featuredImage": "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg",
+                    "sliderImages": ["http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg", "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg"],
+                    "name": "Product 2",
+                    "price": 30,
+                    "category": ["Bag", "handy"],
+                    "tags": ["hermes", "bijan", "bugatti"],
+                    "description": "desc",
+                    "sizes": ["xs", "md"],
+                    "rating": 2,
+                    "brand": "hermes",
+                    "colors": ["red", "blue"]
+                }
+            ],
+            "category": {
+                "title": "Categories of The Month",
+                "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "items": [
+                    { "id": 1, "name": "watches", "image": "http://portfoliom.ir/wp-content/uploads/2022/06/cat-watch.jpg" },
+                    { "id": 2, "name": "shoes", "image": "http://portfoliom.ir/wp-content/uploads/2022/06/cat-shoes.jpg" },
+                    { "id": 3, "name": "accessories", "image": "http://portfoliom.ir/wp-content/uploads/2022/06/cat-access.jpg" }
+                ]
+            },
+            "featured": [1, 2, 3]
+        },
+        "about": {
+            "description": "Lorem ipsum",
+            "services": [
+                { "title": "Service 1", "description": "Lorem ipsum ", "itemIcon": "SVG", "itemTitle": "Title Test" },
+                { "title": "Service 2", "description": "Lorem ipsum 2", "itemIcon": "SVG 2", "itemTitle": "Title Test 2" }
+            ],
+            "partners": [
+                { "icon": "svg icon / image url", "name": "google", "title": "description " },
+                { "icon": "svg icon / image url", "name": "Apple", "title": "description apple " }
+            ]
+        },
+        "contact": {
+            "socials": [
+                {
+                    "icon": "ant-design:facebook-filled",
+                    "name": "facebook",
+                    "address": "https://www.telegram.com/"
+                },
+                {
+                    "icon": "akar-icons:instagram-fill",
+                    "name": "instagram",
+                    "address": "https://www.instagram.com/"
+                },
+                {
+                    "icon": "akar-icons:twitter-fill",
+                    "name": "twitter",
+                    "address": "https://www.twitter.com/"
+                },
+                {
+                    "icon": "akar-icons:linkedin-box-fill",
+                    "name": "linkedin",
+                    "address": "https://www.linkedin.com/"
+                }
+            ],
+            "location": { "latitude": "-70.9", "longitude": "42.35" },
+            "title": "Zay Shop",
+            "description": "Proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet.",
+            "email": "info@company.com",
+            "address": "123 Consectetur at ligula 10660",
+            "phone": "010-020-0340"
+        },
+        "navigation": [
+            { "title": "Home", "address": "/", "isRoute": true },
+            { "title": "About", "address": "/about", "isRoute": true },
+            { "title": "Shop", "address": "/shop", "isRoute": true },
+            { "title": "Contact", "address": "/contact", "isRoute": true }
+        ]
+    }
+]

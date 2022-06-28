@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 // import Button from "react-bootstrap/esm/Button";
 import SearchModal from "./SearchModal";
-const Header = () => {
+const Header = ({ jsonData }) => {
     const [open, setOpen] = useState(false);
+
+    useEffect(() => {}, [jsonData]);
 
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light shadow">
                 <div className="container d-flex justify-content-between align-items-center">
-                    <a className="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                    <Link className="navbar-brand text-success logo h1 align-self-center" to="/">
                         Zay
-                    </a>
+                    </Link>
 
                     <button
                         className="navbar-toggler border-0"
@@ -29,26 +31,17 @@ const Header = () => {
                     <div className="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
                         <div className="flex-fill">
                             <ul className="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                                <li className="nav-item">
-                                    <Link to="/" className="nav-link">
-                                        Home
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link to="/about" className="nav-link">
-                                        About
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link to="/shop" className="nav-link">
-                                        Shop
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link to="/contact" className="nav-link">
-                                        Contact
-                                    </Link>
-                                </li>
+                                {jsonData &&
+                                    jsonData.length > 0 &&
+                                    jsonData[0].navigation.map((nav, index) => {
+                                        return (
+                                            <li className="nav-item" key={index}>
+                                                <Link to={nav.address} className="nav-link">
+                                                    {nav.title}
+                                                </Link>
+                                            </li>
+                                        );
+                                    })}
                             </ul>
                         </div>
                         <div className="navbar align-self-center d-flex">

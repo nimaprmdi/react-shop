@@ -6,15 +6,15 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 
-const Home = () => {
+const Home = ({ jsonData }) => {
     return (
         <div className="c-home">
-            <Navbar />
-            <Header />
-            <Hero />
-            <FeaturedCategories />
-            <FeaturedProducts />
-            <Footer />
+            <Navbar jsonData={jsonData} />
+            <Header jsonData={jsonData} />
+            <Hero jsonData={jsonData} />
+            <FeaturedCategories jsonData={jsonData} />
+            <FeaturedProducts jsonData={jsonData} />
+            <Footer jsonData={jsonData} />
         </div>
     );
 };
