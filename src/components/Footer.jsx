@@ -4,9 +4,7 @@ import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 
 const Footer = ({ jsonData }) => {
-    useEffect(() => {
-        jsonData && jsonData.length > 0 && console.log(jsonData[0]);
-    }, [jsonData]);
+    useEffect(() => {}, [jsonData]);
 
     return (
         <footer className="bg-dark" id="tempaltemo_footer">

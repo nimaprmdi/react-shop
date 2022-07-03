@@ -1,65 +1,144 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Categories from "../components/Categories";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
-import product_img from "../assets/images/shop_01.jpg";
 import Product from "../components/Product";
+import Preloader from "../components/Preloader";
+import ProductsSorting from "../components/ProductsSorting";
+import { useSearchParams } from "react-router-dom";
+import { filterDatasByCats, sortDataAtoZ, sortDataZtoA, shuffleData } from "../helpers/handleFilter";
 
-const Shop = () => {
+const Shop = ({ jsonData }) => {
+    const [selectSortingData, setSelectSortingData] = useState();
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    let cats = searchParams.get("category");
+    let sorting = searchParams.get("sorting");
+
+    {
+        /** @TODO This code is not finished but app is working */
+    }
+    const handleSorting = (sorting) => {
+        switch (sorting) {
+            case "a-to-z":
+                return jsonData && jsonData.length > 0 && sortDataAtoZ(jsonData[0].products.items);
+                break;
+            case "z-to-a":
+                return jsonData && jsonData.length > 0 && sortDataZtoA(jsonData[0].products.items);
+                break;
+            case "featured":
+                return jsonData && jsonData.length > 0 && sortDataZtoA(jsonData[0].products.items);
+                break;
+            case "random":
+                return jsonData && jsonData.length > 0 && shuffleData(jsonData[0].products.items);
+                break;
+            case "all":
+                return jsonData && jsonData.length > 0 && jsonData[0].products.items;
+                break;
+            default:
+                return jsonData && jsonData.length > 0 && jsonData[0].products.items;
+        }
+    };
+
+    const dataItems = React.useMemo(() => {
+        if (!cats) {
+            if (sorting) {
+                switch (sorting) {
+                    case "a-to-z":
+                        return jsonData && jsonData.length > 0 && sortDataAtoZ(jsonData[0].products.items);
+                        break;
+                    case "z-to-a":
+                        return jsonData && jsonData.length > 0 && sortDataZtoA(jsonData[0].products.items);
+                        break;
+                    case "featured":
+                        return jsonData && jsonData.length > 0 && sortDataZtoA(jsonData[0].products.items);
+                        break;
+                    case "random":
+                        return jsonData && jsonData.length > 0 && shuffleData(jsonData[0].products.items);
+                        break;
+                    case "all":
+                        return jsonData && jsonData.length > 0 && jsonData[0].products.items;
+                        break;
+                    default:
+                        return jsonData && jsonData.length > 0 && jsonData[0].products.items;
+                }
+            } else {
+                return jsonData && jsonData.length > 0 && jsonData[0].products.items;
+            }
+        } else {
+            let filteredCats = jsonData && jsonData.length > 0 && filterDatasByCats(jsonData[0].products.items, cats);
+
+            if (sorting) {
+                switch (sorting) {
+                    case "a-to-z":
+                        return jsonData && jsonData.length > 0 && sortDataAtoZ(filteredCats);
+                        break;
+                    case "z-to-a":
+                        return jsonData && jsonData.length > 0 && sortDataZtoA(filteredCats);
+                        break;
+                    case "featured":
+                        return jsonData && jsonData.length > 0 && sortDataZtoA(filteredCats);
+                        break;
+                    case "random":
+                        return jsonData && jsonData.length > 0 && shuffleData(filteredCats);
+                        break;
+                    case "all":
+                        return jsonData && jsonData.length > 0 && filteredCats;
+                        break;
+                    default:
+                        return jsonData && jsonData.length > 0 && filteredCats;
+                }
+            } else {
+                return jsonData && jsonData.length > 0 && filteredCats;
+            }
+        }
+    }, [cats, sorting, jsonData]);
+
+    useEffect(() => {
+        // jsonData && jsonData.length > 0 && console.log(jsonData[0]);
+    }, [jsonData, sorting, cats]);
+
     return (
         <>
-            <Navbar />
-            <Header />
+            <Navbar jsonData={jsonData} />
+            <Header jsonData={jsonData} />
             <div className="container py-5">
                 <div className="row">
                     <div className="col-lg-3">
-                        <Categories />
+                        <Categories searchParams={searchParams} setSearchParams={setSearchParams} jsonData={jsonData} />
                     </div>
 
                     <div className="col-lg-9">
                         <div className="c-shop__products">
-                            <div className="c-shop__header d-flex">
-                                <div className="col-md-6">
-                                    <ul className="list-inline shop-top-menu pb-3 pt-1">
-                                        <li className="list-inline-item">
-                                            <a className="h3 text-dark text-decoration-none mr-3" href="#">
-                                                All
-                                            </a>
-                                        </li>
-                                        <li className="list-inline-item">
-                                            <a className="h3 text-dark text-decoration-none mr-3" href="#">
-                                                Men's
-                                            </a>
-                                        </li>
-                                        <li className="list-inline-item">
-                                            <a className="h3 text-dark text-decoration-none" href="#">
-                                                Women's
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div className="c-shop__header d-flex mb-4">
                                 <div className="col-md-6">
                                     <div className="d-flex">
-                                        <select className="form-control">
-                                            <option>Featured</option>
-                                            <option>A to Z</option>
-                                            <option>Item</option>
-                                        </select>
+                                        <ProductsSorting searchParams={searchParams} setSearchParams={setSearchParams} />
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="c-shop__product-items d-flex flex-wrap justify-content-between">
-                                <Product />
-                                <Product />
-                                <Product />
-                                <Product />
-                                <Product />
-                                <Product />
-                                <Product />
-                                <Product />
-                                <Product />
+                            <div className="c-shop__product-items d-flex flex-wrap justify-content-start">
+                                {dataItems && dataItems.length > 0 ? (
+                                    dataItems.map((item, index) => {
+                                        return <Product key={index} item={item} />;
+                                    })
+                                ) : dataItems && dataItems.length == 0 ? (
+                                    <section className="py-5 w-100">
+                                        <div className="container">
+                                            <div className="row align-items-center py-5 text-center">
+                                                <div className="col-md-8 text-black w-100">
+                                                    <p>No Products Found</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                ) : (
+                                    <div className="w-100">
+                                        <Preloader />
+                                    </div>
+                                )}
                             </div>
                         </div>
 
@@ -85,7 +164,7 @@ const Shop = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <Footer jsonData={jsonData} />
         </>
     );
 };

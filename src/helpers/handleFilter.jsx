@@ -1,13 +1,29 @@
-const filterDatasByTag = (datas, tag) => {
-    return datas.filter((data) => data.tags.includes(tag));
+const filterDatasByCats = (datas, cat) => {
+    return datas && datas.length > 0 && datas.filter((data) => data.category.includes(cat));
 };
 
 const filterDatasById = (datas, ids) => {
-    return datas.filter((data) => ids.includes(data.id));
+    return datas && datas.length > 0 && datas.filter((data) => ids.includes(data.id));
 };
 
 const findDataById = (datas, id) => {
-    return datas.find((data) => data.id === id);
+    return datas && datas.length > 0 && datas.find((data) => data.id === id);
+};
+
+const getFeaturedProducts = (datas, featured) => {
+    return datas && datas.length > 0 && datas.filter((data) => data.products.items.id.includes(featured));
+};
+
+const sortDataAtoZ = (datas) => {
+    return datas && datas.length > 0 && datas.sort((data, b) => data.name.localeCompare(b.name));
+};
+
+const sortDataZtoA = (datas) => {
+    return datas && datas.length > 0 && datas.sort((data, b) => data.name.localeCompare(b.name)).reverse();
+};
+
+const shuffleData = (datas) => {
+    return datas.sort((a, b) => 0.5 - Math.random());
 };
 
 const getAllTags = (datas) => {
@@ -23,4 +39,4 @@ const getAllTags = (datas) => {
     return tags;
 };
 
-export { filterDatasByTag, filterDatasById, findDataById, getAllTags };
+export { filterDatasByCats, filterDatasById, findDataById, getFeaturedProducts, sortDataAtoZ, sortDataZtoA, shuffleData, getAllTags };

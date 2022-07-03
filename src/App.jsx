@@ -17,11 +17,9 @@ function App() {
             },
         })
             .then(function (response) {
-                // console.log(response);
                 return response.json();
             })
             .then(function (myJson) {
-                // console.log(myJson.record);
                 setJsonData(myJson.record);
             });
     };
@@ -36,13 +34,13 @@ function App() {
                 <div className="root-app.js">
                     <Routes>
                         <Route path="/" element={<Home jsonData={jsonData} />} />
-                        <Route path="shop" element={<Shop />} />
-                        <Route path="about" element={<About />} />
-                        <Route path="product" element={<ProductSingle />} />
-                        <Route path="contact" element={<Contact />} />
+                        <Route path="shop" element={<Shop jsonData={jsonData} />} />
+                        <Route path="about" element={<About jsonData={jsonData} />} />
+                        <Route path="product" element={<ProductSingle jsonData={jsonData} />} />
+                        <Route path="contact" element={<Contact jsonData={jsonData} />} />
 
-                        <Route path="/404" element={<NotFound />} />
-                        <Route path="*" element={<Navigate replace to="/404" />} />
+                        <Route path="/404" element={<NotFound jsonData={jsonData} />} />
+                        <Route path="*" element={<Navigate jsonData={jsonData} replace to="/404" />} />
                     </Routes>
                 </div>
             </BrowserRouter>

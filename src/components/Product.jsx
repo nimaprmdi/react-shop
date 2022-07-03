@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Icon } from "@iconify/react";
 import product_img from "../assets/images/shop_01.jpg";
 
-const Product = () => {
+const Product = ({ item: itemData }) => {
+    useEffect(() => {}, [itemData]);
+
     return (
         <div className="c-shop__product-item">
             <div className="card mb-4 product-wap rounded-0">
@@ -36,7 +38,7 @@ const Product = () => {
                 </div>
                 <div className="card-body">
                     <a href="shop-single.html" className="h3 text-decoration-none">
-                        Oupidatat non
+                        {itemData.name}
                     </a>
                     <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
                         <li>M/L/X/XL</li>

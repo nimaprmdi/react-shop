@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Icon } from "@iconify/react";
 import { Accordion } from "react-bootstrap";
+import { Link, useSearchParams } from "react-router-dom";
 
-import AccordionItem from "react-bootstrap/esm/AccordionItem";
-import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
-import AccordionBody from "react-bootstrap/esm/AccordionBody";
+const Categories = ({ jsonData }) => {
+    const [searchParams, setSearchParams] = useSearchParams();
 
-const Categories = () => {
+    for (const entry of searchParams.keys()) {
+        // console.log(entry);
+    }
+    const handleClick = (searchCat) => {
+        // setSearchParams({ category: searchCat });
+    };
+
+    useEffect(() => {}, [jsonData]);
+
     return (
         <div className="c-categories">
             <h1 className="h2 pb-4">Categories</h1>
@@ -15,60 +23,27 @@ const Categories = () => {
                 // defaultActiveKey={["0"]}
                 //alwaysOpen
                 >
-                    <Accordion.Item eventKey="0">
-                        <Accordion.Header className="collapsed d-flex justify-content-between h3 text-decoration-none">Gender</Accordion.Header>
-                        <Accordion.Body className="list-unstyled pl-3">
-                            <ul className="">
-                                <li>
-                                    <a className="text-decoration-none" href="#">
-                                        Men
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className="text-decoration-none" href="#">
-                                        Women
-                                    </a>
-                                </li>
-                            </ul>
-                        </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="1">
-                        <Accordion.Header className="collapsed d-flex justify-content-between h3 text-decoration-none">Sale</Accordion.Header>
-                        <Accordion.Body className="list-unstyled pl-3">
-                            <ul className="">
-                                <li>
-                                    <a className="text-decoration-none" href="#">
-                                        Sport
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className="text-decoration-none" href="#">
-                                        Luxury
-                                    </a>
-                                </li>
-                            </ul>
-                        </Accordion.Body>
-                    </Accordion.Item>
-
                     <Accordion.Item eventKey="2">
                         <Accordion.Header className="collapsed d-flex justify-content-between h3 text-decoration-none">Products</Accordion.Header>
                         <Accordion.Body className="list-unstyled pl-3">
-                            <ul className="">
+                            <ul>
                                 <li>
-                                    <a className="text-decoration-none" href="#">
-                                        Bag
-                                    </a>
+                                    <Link className="text-decoration-none text-capitalize" to={`/shop`}>
+                                        All
+                                    </Link>
                                 </li>
-                                <li>
-                                    <a className="text-decoration-none" href="#">
-                                        Sweather
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className="text-decoration-none" href="#">
-                                        Sunglass
-                                    </a>
-                                </li>
+
+                                {jsonData &&
+                                    jsonData.length > 0 &&
+                                    jsonData[0].products.category.items.map((cat, index) => {
+                                        return (
+                                            <li key={index}>
+                                                <Link onClick={() => handleClick(cat.name)} className="text-decoration-none text-capitalize" to={`/shop/?category=${cat.name}`}>
+                                                    {cat.name}
+                                                </Link>
+                                            </li>
+                                        );
+                                    })}
                             </ul>
                         </Accordion.Body>
                     </Accordion.Item>
