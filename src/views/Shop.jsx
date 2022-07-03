@@ -16,53 +16,32 @@ const Shop = ({ jsonData }) => {
     let cats = searchParams.get("category");
     let sorting = searchParams.get("sorting");
 
-    {
-        /** @TODO This code is not finished but app is working */
-    }
-    const handleSorting = (sorting) => {
+    const handleSorting = (sorting, data) => {
         switch (sorting) {
             case "a-to-z":
-                return jsonData && jsonData.length > 0 && sortDataAtoZ(jsonData[0].products.items);
+                return data && data.length > 0 && sortDataAtoZ(data);
                 break;
             case "z-to-a":
-                return jsonData && jsonData.length > 0 && sortDataZtoA(jsonData[0].products.items);
+                return data && data.length > 0 && sortDataZtoA(data);
                 break;
             case "featured":
-                return jsonData && jsonData.length > 0 && sortDataZtoA(jsonData[0].products.items);
+                return data && data.length > 0 && sortDataZtoA(data);
                 break;
             case "random":
-                return jsonData && jsonData.length > 0 && shuffleData(jsonData[0].products.items);
+                return data && data.length > 0 && shuffleData(data);
                 break;
             case "all":
-                return jsonData && jsonData.length > 0 && jsonData[0].products.items;
+                return data && data.length > 0 && data;
                 break;
             default:
-                return jsonData && jsonData.length > 0 && jsonData[0].products.items;
+                return data && data.length > 0 && data;
         }
     };
 
     const dataItems = React.useMemo(() => {
         if (!cats) {
             if (sorting) {
-                switch (sorting) {
-                    case "a-to-z":
-                        return jsonData && jsonData.length > 0 && sortDataAtoZ(jsonData[0].products.items);
-                        break;
-                    case "z-to-a":
-                        return jsonData && jsonData.length > 0 && sortDataZtoA(jsonData[0].products.items);
-                        break;
-                    case "featured":
-                        return jsonData && jsonData.length > 0 && sortDataZtoA(jsonData[0].products.items);
-                        break;
-                    case "random":
-                        return jsonData && jsonData.length > 0 && shuffleData(jsonData[0].products.items);
-                        break;
-                    case "all":
-                        return jsonData && jsonData.length > 0 && jsonData[0].products.items;
-                        break;
-                    default:
-                        return jsonData && jsonData.length > 0 && jsonData[0].products.items;
-                }
+                return jsonData && jsonData.length > 0 && handleSorting(sorting, jsonData[0].products.items);
             } else {
                 return jsonData && jsonData.length > 0 && jsonData[0].products.items;
             }
@@ -70,25 +49,7 @@ const Shop = ({ jsonData }) => {
             let filteredCats = jsonData && jsonData.length > 0 && filterDatasByCats(jsonData[0].products.items, cats);
 
             if (sorting) {
-                switch (sorting) {
-                    case "a-to-z":
-                        return jsonData && jsonData.length > 0 && sortDataAtoZ(filteredCats);
-                        break;
-                    case "z-to-a":
-                        return jsonData && jsonData.length > 0 && sortDataZtoA(filteredCats);
-                        break;
-                    case "featured":
-                        return jsonData && jsonData.length > 0 && sortDataZtoA(filteredCats);
-                        break;
-                    case "random":
-                        return jsonData && jsonData.length > 0 && shuffleData(filteredCats);
-                        break;
-                    case "all":
-                        return jsonData && jsonData.length > 0 && filteredCats;
-                        break;
-                    default:
-                        return jsonData && jsonData.length > 0 && filteredCats;
-                }
+                return jsonData && jsonData.length > 0 && handleSorting(sorting, filteredCats);
             } else {
                 return jsonData && jsonData.length > 0 && filteredCats;
             }
@@ -120,6 +81,7 @@ const Shop = ({ jsonData }) => {
                             </div>
 
                             <div className="c-shop__product-items d-flex flex-wrap justify-content-start">
+                                {console.log("dataItems", dataItems)}
                                 {dataItems && dataItems.length > 0 ? (
                                     dataItems.map((item, index) => {
                                         return <Product key={index} item={item} />;
