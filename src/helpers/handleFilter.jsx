@@ -26,6 +26,28 @@ const shuffleData = (datas) => {
     return datas.sort((a, b) => 0.5 - Math.random());
 };
 
+const handleSorting = (sorting, data) => {
+    switch (sorting) {
+        case "a-to-z":
+            return data && data.length > 0 && sortDataAtoZ(data);
+            break;
+        case "z-to-a":
+            return data && data.length > 0 && sortDataZtoA(data);
+            break;
+        case "featured":
+            return data && data.length > 0 && sortDataZtoA(data);
+            break;
+        case "random":
+            return data && data.length > 0 && shuffleData(data);
+            break;
+        case "all":
+            return data && data.length > 0 && data;
+            break;
+        default:
+            return data && data.length > 0 && data;
+    }
+};
+
 const getAllTags = (datas) => {
     let tags = [];
     datas.filter((data) => {
@@ -39,4 +61,4 @@ const getAllTags = (datas) => {
     return tags;
 };
 
-export { filterDatasByCats, filterDatasById, findDataById, getFeaturedProducts, sortDataAtoZ, sortDataZtoA, shuffleData, getAllTags };
+export { filterDatasByCats, filterDatasById, findDataById, getFeaturedProducts, sortDataAtoZ, sortDataZtoA, shuffleData, handleSorting, getAllTags };

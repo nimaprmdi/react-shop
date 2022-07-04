@@ -6,10 +6,9 @@ import Navbar from "../components/Navbar";
 import Product from "../components/Product";
 import Preloader from "../components/Preloader";
 import ProductsSorting from "../components/ProductsSorting";
-import { useSearchParams } from "react-router-dom";
-import { filterDatasByCats, sortDataAtoZ, sortDataZtoA, shuffleData } from "../helpers/handleFilter";
-
 import ReactPaginate from "react-paginate";
+import { useSearchParams } from "react-router-dom";
+import { filterDatasByCats, handleSorting } from "../helpers/handleFilter";
 
 const Shop = ({ jsonData }) => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -20,28 +19,6 @@ const Shop = ({ jsonData }) => {
     const [currentItems, setCurrentItems] = useState(null);
     const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
-
-    const handleSorting = (sorting, data) => {
-        switch (sorting) {
-            case "a-to-z":
-                return data && data.length > 0 && sortDataAtoZ(data);
-                break;
-            case "z-to-a":
-                return data && data.length > 0 && sortDataZtoA(data);
-                break;
-            case "featured":
-                return data && data.length > 0 && sortDataZtoA(data);
-                break;
-            case "random":
-                return data && data.length > 0 && shuffleData(data);
-                break;
-            case "all":
-                return data && data.length > 0 && data;
-                break;
-            default:
-                return data && data.length > 0 && data;
-        }
-    };
 
     const dataItems = React.useMemo(() => {
         if (!cats) {
@@ -119,19 +96,26 @@ const Shop = ({ jsonData }) => {
 
                         <div className="c-shop__pagination row mt-2">
                             <ReactPaginate
-                                breakLabel="..."
-                                nextLabel=">"
-                                onPageChange={handlePageClick}
-                                pageRangeDisplayed={3}
-                                pageCount={pageCount}
-                                previousLabel="<"
                                 renderOnZeroPageCount={null}
-                                className="c-pagination pagination pagination-lg justify-content-end"
-                                pageClassName="page-item page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
-                                breakLinkClassName="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
-                                previousClassName="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
-                                nextClassName="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
-                                activeClassName="disabled bg-primary"
+                                className="c-pagination pagination justify-content-end"
+                                previousLabel="Previous"
+                                nextLabel="Next"
+                                pageClassName="page-item rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
+                                pageLinkClassName="page-link"
+                                previousClassName=" rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
+                                previousLinkClassName="page-link"
+                                nextClassName="rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
+                                nextLinkClassName="page-link"
+                                breakLabel="..."
+                                breakClassName="page-item"
+                                breakLinkClassName="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
+                                pageCount={pageCount}
+                                marginPagesDisplayed={2}
+                                pageRangeDisplayed={3}
+                                onPageChange={handlePageClick}
+                                containerClassName="pagination"
+                                activeClassName="bg-success"
+                                activeLinkClassName="text-light disabled bg-success"
                             />
                         </div>
                     </div>
