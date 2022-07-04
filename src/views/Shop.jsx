@@ -81,12 +81,12 @@ const Shop = ({ jsonData }) => {
                             </div>
 
                             <div className="c-shop__product-items d-flex flex-wrap justify-content-start">
-                                {console.log("dataItems", dataItems)}
+                                {console.log(dataItems)}
                                 {dataItems && dataItems.length > 0 ? (
                                     dataItems.map((item, index) => {
                                         return <Product key={index} item={item} />;
                                     })
-                                ) : dataItems && dataItems.length == 0 ? (
+                                ) : (dataItems && dataItems.length == 0) || dataItems === false ? (
                                     <section className="py-5 w-100">
                                         <div className="container">
                                             <div className="row align-items-center py-5 text-center">
@@ -97,9 +97,11 @@ const Shop = ({ jsonData }) => {
                                         </div>
                                     </section>
                                 ) : (
-                                    <div className="w-100">
-                                        <Preloader />
-                                    </div>
+                                    dataItems === undefined && (
+                                        <div className="w-100">
+                                            <Preloader />
+                                        </div>
+                                    )
                                 )}
                             </div>
                         </div>

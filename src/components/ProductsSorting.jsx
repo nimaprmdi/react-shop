@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 const ProductsSorting = ({ searchParams, setSearchParams }) => {
-    let navigate = useNavigate();
-
     const handleSelectChange = (e) => {
         setSearchParams({ ...searchParams, sorting: e.target.value });
+        let updatedSearchParams = new URLSearchParams(searchParams.toString());
+        updatedSearchParams.set("sorting", e.target.value);
+        setSearchParams(updatedSearchParams.toString());
     };
 
-    useEffect(() => {}, [searchParams]);
+    useEffect(() => {
+        console.log(searchParams);
+    }, []);
 
     return (
         <select className="form-control" onChange={(e) => handleSelectChange(e)}>

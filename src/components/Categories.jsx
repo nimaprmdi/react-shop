@@ -1,16 +1,15 @@
 import React, { useEffect } from "react";
 import { Icon } from "@iconify/react";
 import { Accordion } from "react-bootstrap";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Categories = ({ jsonData }) => {
-    const [searchParams, setSearchParams] = useSearchParams();
-
-    for (const entry of searchParams.keys()) {
-        // console.log(entry);
-    }
-    const handleClick = (searchCat) => {
-        // setSearchParams({ category: searchCat });
+const Categories = ({ searchParams, setSearchParams, jsonData }) => {
+    const handleClick = (cat) => {
+        console.log(cat.name);
+        setSearchParams({ ...searchParams, category: cat.name });
+        let updatedSearchParams = new URLSearchParams(searchParams.toString());
+        updatedSearchParams.set("category", cat.name);
+        setSearchParams(updatedSearchParams.toString());
     };
 
     useEffect(() => {}, [jsonData]);
@@ -38,9 +37,9 @@ const Categories = ({ jsonData }) => {
                                     jsonData[0].products.category.items.map((cat, index) => {
                                         return (
                                             <li key={index}>
-                                                <Link onClick={() => handleClick(cat.name)} className="text-decoration-none text-capitalize" to={`/shop/?category=${cat.name}`}>
+                                                <a onClick={() => handleClick(cat)} className="text-decoration-none text-capitalize cursor-pointer">
                                                     {cat.name}
-                                                </Link>
+                                                </a>
                                             </li>
                                         );
                                     })}
