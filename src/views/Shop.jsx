@@ -9,12 +9,17 @@ import ProductsSorting from "../components/ProductsSorting";
 import { useSearchParams } from "react-router-dom";
 import { filterDatasByCats, sortDataAtoZ, sortDataZtoA, shuffleData } from "../helpers/handleFilter";
 
-const Shop = ({ jsonData }) => {
-    const [selectSortingData, setSelectSortingData] = useState();
+import ReactPaginate from "react-paginate";
 
+const Shop = ({ jsonData }) => {
     const [searchParams, setSearchParams] = useSearchParams();
     let cats = searchParams.get("category");
     let sorting = searchParams.get("sorting");
+
+    // Pagination
+    const [currentItems, setCurrentItems] = useState(null);
+    const [pageCount, setPageCount] = useState(0);
+    const [itemOffset, setItemOffset] = useState(0);
 
     const handleSorting = (sorting, data) => {
         switch (sorting) {
@@ -56,9 +61,16 @@ const Shop = ({ jsonData }) => {
         }
     }, [cats, sorting, jsonData]);
 
+    const handlePageClick = (event) => {
+        const newOffset = dataItems && dataItems.length > 0 && (event.selected * 3) % dataItems.length;
+        setItemOffset(newOffset);
+    };
+
     useEffect(() => {
-        // jsonData && jsonData.length > 0 && console.log(jsonData[0]);
-    }, [jsonData, sorting, cats]);
+        const endOffset = itemOffset + 3;
+        dataItems && dataItems.length > 0 ? setCurrentItems(dataItems.slice(itemOffset, endOffset)) : setCurrentItems(null);
+        dataItems && dataItems.length > 0 && setPageCount(Math.ceil(dataItems.length / 3));
+    }, [jsonData, sorting, cats, dataItems, itemOffset, pageCount]);
 
     return (
         <>
@@ -81,12 +93,11 @@ const Shop = ({ jsonData }) => {
                             </div>
 
                             <div className="c-shop__product-items d-flex flex-wrap justify-content-start">
-                                {console.log(dataItems)}
-                                {dataItems && dataItems.length > 0 ? (
-                                    dataItems.map((item, index) => {
+                                {currentItems && currentItems.length > 0 ? (
+                                    currentItems.map((item, index) => {
                                         return <Product key={index} item={item} />;
                                     })
-                                ) : (dataItems && dataItems.length == 0) || dataItems === false ? (
+                                ) : (currentItems && currentItems.length == 0) || currentItems === null ? (
                                     <section className="py-5 w-100">
                                         <div className="container">
                                             <div className="row align-items-center py-5 text-center">
@@ -97,7 +108,7 @@ const Shop = ({ jsonData }) => {
                                         </div>
                                     </section>
                                 ) : (
-                                    dataItems === undefined && (
+                                    currentItems === undefined && (
                                         <div className="w-100">
                                             <Preloader />
                                         </div>
@@ -107,23 +118,21 @@ const Shop = ({ jsonData }) => {
                         </div>
 
                         <div className="c-shop__pagination row mt-2">
-                            <ul className="pagination pagination-lg justify-content-end">
-                                <li className="page-item disabled">
-                                    <a className="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#" tabIndex="-1">
-                                        1
-                                    </a>
-                                </li>
-                                <li className="page-item">
-                                    <a className="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">
-                                        2
-                                    </a>
-                                </li>
-                                <li className="page-item">
-                                    <a className="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">
-                                        3
-                                    </a>
-                                </li>
-                            </ul>
+                            <ReactPaginate
+                                breakLabel="..."
+                                nextLabel=">"
+                                onPageChange={handlePageClick}
+                                pageRangeDisplayed={3}
+                                pageCount={pageCount}
+                                previousLabel="<"
+                                renderOnZeroPageCount={null}
+                                className="c-pagination pagination pagination-lg justify-content-end"
+                                pageClassName="page-item page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
+                                breakLinkClassName="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
+                                previousClassName="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
+                                nextClassName="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
+                                activeClassName="disabled bg-primary"
+                            />
                         </div>
                     </div>
                 </div>

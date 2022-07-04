@@ -8,10 +8,6 @@ const ProductsSorting = ({ searchParams, setSearchParams }) => {
         setSearchParams(updatedSearchParams.toString());
     };
 
-    useEffect(() => {
-        console.log(searchParams);
-    }, []);
-
     return (
         <select className="form-control" onChange={(e) => handleSelectChange(e)}>
             <option value={"all"}>All</option>

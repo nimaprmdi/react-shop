@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const Categories = ({ searchParams, setSearchParams, jsonData }) => {
     const handleClick = (cat) => {
-        console.log(cat.name);
         setSearchParams({ ...searchParams, category: cat.name });
         let updatedSearchParams = new URLSearchParams(searchParams.toString());
         updatedSearchParams.set("category", cat.name);
