@@ -34,10 +34,13 @@ function App() {
                 <div className="root-app.js">
                     <Routes>
                         <Route path="/" element={<Home jsonData={jsonData} />} />
-                        <Route path="shop" element={<Shop jsonData={jsonData} />} />
                         <Route path="about" element={<About jsonData={jsonData} />} />
-                        <Route path="product" element={<ProductSingle jsonData={jsonData} />} />
                         <Route path="contact" element={<Contact jsonData={jsonData} />} />
+
+                        <Route path="shop">
+                            <Route index element={<Shop jsonData={jsonData} />} />
+                            <Route path="product/:id" element={<ProductSingle jsonData={jsonData} />} />
+                        </Route>
 
                         <Route path="/404" element={<NotFound jsonData={jsonData} />} />
                         <Route path="*" element={<Navigate jsonData={jsonData} replace to="/404" />} />

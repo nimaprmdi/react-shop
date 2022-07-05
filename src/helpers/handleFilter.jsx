@@ -7,7 +7,7 @@ const filterDatasById = (datas, ids) => {
 };
 
 const findDataById = (datas, id) => {
-    return datas && datas.length > 0 && datas.find((data) => data.id === id);
+    return datas.find((data) => data.id === id);
 };
 
 const getFeaturedProducts = (datas, featured) => {

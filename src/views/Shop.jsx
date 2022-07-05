@@ -94,30 +94,32 @@ const Shop = ({ jsonData }) => {
                             </div>
                         </div>
 
-                        <div className="c-shop__pagination row mt-2">
-                            <ReactPaginate
-                                renderOnZeroPageCount={null}
-                                className="c-pagination pagination justify-content-end"
-                                previousLabel="Previous"
-                                nextLabel="Next"
-                                pageClassName="page-item rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
-                                pageLinkClassName="page-link"
-                                previousClassName=" rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
-                                previousLinkClassName="page-link"
-                                nextClassName="rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
-                                nextLinkClassName="page-link"
-                                breakLabel="..."
-                                breakClassName="page-item"
-                                breakLinkClassName="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
-                                pageCount={pageCount}
-                                marginPagesDisplayed={2}
-                                pageRangeDisplayed={3}
-                                onPageChange={handlePageClick}
-                                containerClassName="pagination"
-                                activeClassName="bg-success"
-                                activeLinkClassName="text-light disabled bg-success"
-                            />
-                        </div>
+                        {currentItems !== null && (
+                            <div className="c-shop__pagination row mt-2">
+                                <ReactPaginate
+                                    renderOnZeroPageCount={null}
+                                    className="c-pagination pagination justify-content-end"
+                                    previousLabel="Previous"
+                                    nextLabel="Next"
+                                    pageClassName="page-item rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
+                                    pageLinkClassName="page-link"
+                                    previousClassName=" rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
+                                    previousLinkClassName="page-link"
+                                    nextClassName="rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
+                                    nextLinkClassName="page-link"
+                                    breakLabel="..."
+                                    breakClassName="page-item"
+                                    breakLinkClassName="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
+                                    pageCount={pageCount}
+                                    marginPagesDisplayed={2}
+                                    pageRangeDisplayed={3}
+                                    onPageChange={handlePageClick}
+                                    containerClassName="pagination"
+                                    activeClassName="bg-success"
+                                    activeLinkClassName="text-light disabled bg-success"
+                                />
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

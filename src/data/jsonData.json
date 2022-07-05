@@ -25,7 +25,13 @@
                 {
                     "id": 1,
                     "featuredImage": "http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg",
-                    "sliderImages": ["http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg", "http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg"],
+                    "sliderImages": [
+                        "http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg",
+                        "https://cdn.vergleich.org/img/comparison-tables/olaplex-nr-4-bindungspflege-shampoo-500x500.jpg",
+                        "https://m.media-amazon.com/images/I/41V94bHKRnL.jpg",
+                        "https://www.sailersapo.de/documents/products/Zoom/Ei%20Shampoo%20500x500.jpg?ver=1649058550",
+                        "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg"
+                    ],
                     "name": "A bag",
                     "price": 50,
                     "category": ["bag"],
