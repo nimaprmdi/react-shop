@@ -26,6 +26,10 @@ const shuffleData = (datas) => {
     return datas.sort((a, b) => 0.5 - Math.random());
 };
 
+const getStarRating = (stars) => {
+    return "✮✮✮✮✮✩✩✩✩✩".slice(5 - stars, 10 - stars);
+};
+
 const handleSorting = (sorting, data) => {
     switch (sorting) {
         case "a-to-z":
@@ -61,4 +65,4 @@ const getAllTags = (datas) => {
     return tags;
 };
 
-export { filterDatasByCats, filterDatasById, findDataById, getFeaturedProducts, sortDataAtoZ, sortDataZtoA, shuffleData, handleSorting, getAllTags };
+export { filterDatasByCats, filterDatasById, findDataById, getFeaturedProducts, sortDataAtoZ, sortDataZtoA, shuffleData, getStarRating, handleSorting, getAllTags };

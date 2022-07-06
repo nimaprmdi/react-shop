@@ -10,6 +10,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 function App() {
     const [jsonData, setJsonData] = useState();
 
+    const [cart, setCart] = useState([]);
+
     const getData = () => {
         fetch("https://api.jsonbin.io/v3/b/62b942a5449a1f38211d98f4/latest", {
             headers: {
@@ -26,24 +28,32 @@ function App() {
 
     useEffect(() => {
         getData();
-    }, []);
+
+        console.log(cart);
+    }, [cart]);
 
     return (
         <div className="App">
             <BrowserRouter>
                 <div className="root-app.js">
                     <Routes>
-                        <Route path="/" element={<Home jsonData={jsonData} />} />
-                        <Route path="about" element={<About jsonData={jsonData} />} />
-                        <Route path="contact" element={<Contact jsonData={jsonData} />} />
+                        <Route path="/" element={<Home jsonData={jsonData} cart={cart} setCart={setCart} />} />
+                        <Route path="about" element={<About jsonData={jsonData} cart={cart} setCart={setCart} />} />
+                        <Route path="contact" element={<Contact jsonData={jsonData} cart={cart} setCart={setCart} />} />
 
                         <Route path="shop">
-                            <Route index element={<Shop jsonData={jsonData} />} />
-                            <Route path="product/:id" element={<ProductSingle jsonData={jsonData} />} />
+                            <Route index element={<Shop jsonData={jsonData} cart={cart} setCart={setCart} />} />
+                            <Route
+                                path="product/:id"
+                                element={<ProductSingle jsonData={jsonData} cart={cart} setCart={setCart} />}
+                            />
                         </Route>
 
-                        <Route path="/404" element={<NotFound jsonData={jsonData} />} />
-                        <Route path="*" element={<Navigate jsonData={jsonData} replace to="/404" />} />
+                        <Route path="/404" element={<NotFound jsonData={jsonData} cart={cart} setCart={setCart} />} />
+                        <Route
+                            path="*"
+                            element={<Navigate jsonData={jsonData} replace to="/404" cart={cart} setCart={setCart} />}
+                        />
                     </Routes>
                 </div>
             </BrowserRouter>

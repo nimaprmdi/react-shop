@@ -10,7 +10,7 @@ import ReactPaginate from "react-paginate";
 import { useSearchParams } from "react-router-dom";
 import { filterDatasByCats, handleSorting } from "../helpers/handleFilter";
 
-const Shop = ({ jsonData }) => {
+const Shop = ({ jsonData, cart, setCart }) => {
     const [searchParams, setSearchParams] = useSearchParams();
     let cats = searchParams.get("category");
     let sorting = searchParams.get("sorting");
@@ -43,16 +43,26 @@ const Shop = ({ jsonData }) => {
         setItemOffset(newOffset);
     };
 
+    const handleAddCart = (item) => {
+        const cartItems = jsonData && jsonData.length > 0 && [...jsonData[0].products.items]; // Clone Object
+        const indexOf = cartItems.indexOf(item);
+        setCart([...cart, cartItems[indexOf]]);
+        console.log("cart here", ...cart);
+    };
+
     useEffect(() => {
         const endOffset = itemOffset + 3;
-        dataItems && dataItems.length > 0 ? setCurrentItems(dataItems.slice(itemOffset, endOffset)) : setCurrentItems(null);
+        dataItems && dataItems.length > 0
+            ? setCurrentItems(dataItems.slice(itemOffset, endOffset))
+            : setCurrentItems(null);
         dataItems && dataItems.length > 0 && setPageCount(Math.ceil(dataItems.length / 3));
     }, [jsonData, sorting, cats, dataItems, itemOffset, pageCount]);
 
     return (
         <>
             <Navbar jsonData={jsonData} />
-            <Header jsonData={jsonData} />
+            <Header cart={cart} jsonData={jsonData} />
+
             <div className="container py-5">
                 <div className="row">
                     <div className="col-lg-3">
@@ -64,7 +74,10 @@ const Shop = ({ jsonData }) => {
                             <div className="c-shop__header d-flex mb-4">
                                 <div className="col-md-6">
                                     <div className="d-flex">
-                                        <ProductsSorting searchParams={searchParams} setSearchParams={setSearchParams} />
+                                        <ProductsSorting
+                                            searchParams={searchParams}
+                                            setSearchParams={setSearchParams}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +85,13 @@ const Shop = ({ jsonData }) => {
                             <div className="c-shop__product-items d-flex flex-wrap justify-content-start">
                                 {currentItems && currentItems.length > 0 ? (
                                     currentItems.map((item, index) => {
-                                        return <Product key={index} item={item} />;
+                                        return (
+                                            <Product
+                                                onHandleAddCart={() => handleAddCart(item)}
+                                                key={index}
+                                                item={item}
+                                            />
+                                        );
                                     })
                                 ) : (currentItems && currentItems.length == 0) || currentItems === null ? (
                                     <section className="py-5 w-100">

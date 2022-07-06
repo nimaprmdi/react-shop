@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 // import Button from "react-bootstrap/esm/Button";
 import SearchModal from "./SearchModal";
-const Header = ({ jsonData }) => {
+const Header = ({ jsonData, cart }) => {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {}, [jsonData]);
@@ -28,7 +28,10 @@ const Header = ({ jsonData }) => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    <div className="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                    <div
+                        className="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between"
+                        id="templatemo_main_nav"
+                    >
                         <div className="flex-fill">
                             <ul className="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                                 {jsonData &&
@@ -47,14 +50,24 @@ const Header = ({ jsonData }) => {
                         <div className="navbar align-self-center d-flex">
                             <div className="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
                                 <div className="input-group">
-                                    <input type="text" className="form-control" id="inputMobileSearch" placeholder="Search ..." />
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="inputMobileSearch"
+                                        placeholder="Search ..."
+                                    />
                                     <div className="input-group-text">
                                         <i className="fa fa-fw fa-search"></i>
                                     </div>
                                 </div>
                             </div>
 
-                            <button className="btn" onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
+                            <button
+                                className="btn"
+                                onClick={() => setOpen(!open)}
+                                aria-controls="example-collapse-text"
+                                aria-expanded={open}
+                            >
                                 <i className="fa fa-fw fa-search text-dark mr-2">
                                     <Icon icon="fluent:search-16-filled" />
                                 </i>
@@ -62,13 +75,9 @@ const Header = ({ jsonData }) => {
 
                             <button className="btn nav-icon position-relative text-decoration-none mr-0" href="#">
                                 <Icon icon="clarity:shopping-cart-line" />
-                                <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-                            </button>
-                            <button className="btn nav-icon position-relative text-decoration-none" href="#">
-                                <i className="fa fa-fw fa-user text-dark mr-0">
-                                    <Icon icon="ant-design:user-outlined" />
-                                </i>
-                                <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+                                <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
+                                    {cart > 0 && cart}
+                                </span>
                             </button>
                         </div>
                     </div>
