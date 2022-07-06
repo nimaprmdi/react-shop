@@ -45,7 +45,10 @@
                 {
                     "id": 2,
                     "featuredImage": "http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg",
-                    "sliderImages": ["http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg", "http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg"],
+                    "sliderImages": [
+                        "http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg",
+                        "http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg"
+                    ],
                     "name": "B bag",
                     "price": 50,
                     "category": ["bag"],
@@ -59,7 +62,10 @@
                 {
                     "id": 3,
                     "featuredImage": "http://portfoliom.ir/wp-content/uploads/2022/06/img2.jpg",
-                    "sliderImages": ["http://portfoliom.ir/wp-content/uploads/2022/06/img2.jpg", "http://portfoliom.ir/wp-content/uploads/2022/06/img2.jpg"],
+                    "sliderImages": [
+                        "http://portfoliom.ir/wp-content/uploads/2022/06/img2.jpg",
+                        "http://portfoliom.ir/wp-content/uploads/2022/06/img2.jpg"
+                    ],
                     "name": "A watch",
                     "price": 30,
                     "category": ["watch"],
@@ -73,7 +79,10 @@
                 {
                     "id": 4,
                     "featuredImage": "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg",
-                    "sliderImages": ["http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg", "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg"],
+                    "sliderImages": [
+                        "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg",
+                        "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg"
+                    ],
                     "name": "B watch",
                     "price": 30,
                     "category": ["watch"],
@@ -87,7 +96,10 @@
                 {
                     "id": 5,
                     "featuredImage": "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg",
-                    "sliderImages": ["http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg", "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg"],
+                    "sliderImages": [
+                        "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg",
+                        "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg"
+                    ],
                     "name": "A Shoes",
                     "price": 30,
                     "category": ["shoes"],
@@ -101,7 +113,10 @@
                 {
                     "id": 6,
                     "featuredImage": "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg",
-                    "sliderImages": ["http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg", "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg"],
+                    "sliderImages": [
+                        "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg",
+                        "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg"
+                    ],
                     "name": "B Shoes",
                     "price": 30,
                     "category": ["shoes"],
@@ -117,25 +132,70 @@
                 "title": "Categories of The Month",
                 "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 "items": [
-                    { "id": 1, "name": "watch", "image": "http://portfoliom.ir/wp-content/uploads/2022/06/cat-watch.jpg" },
-                    { "id": 2, "name": "shoes", "image": "http://portfoliom.ir/wp-content/uploads/2022/06/cat-shoes.jpg" },
-                    { "id": 3, "name": "accessories", "image": "http://portfoliom.ir/wp-content/uploads/2022/06/cat-access.jpg" },
-                    { "id": 4, "name": "bag", "image": "http://portfoliom.ir/wp-content/uploads/2022/06/cat-access.jpg" },
-                    { "id": 5, "name": "handy", "image": "http://portfoliom.ir/wp-content/uploads/2022/06/cat-access.jpg" }
+                    {
+                        "id": 1,
+                        "name": "watch",
+                        "image": "http://portfoliom.ir/wp-content/uploads/2022/06/cat-watch.jpg"
+                    },
+                    {
+                        "id": 2,
+                        "name": "shoes",
+                        "image": "http://portfoliom.ir/wp-content/uploads/2022/06/cat-shoes.jpg"
+                    },
+                    {
+                        "id": 3,
+                        "name": "accessories",
+                        "image": "http://portfoliom.ir/wp-content/uploads/2022/06/cat-access.jpg"
+                    },
+                    {
+                        "id": 4,
+                        "name": "bag",
+                        "image": "http://portfoliom.ir/wp-content/uploads/2022/06/cat-access.jpg"
+                    },
+                    {
+                        "id": 5,
+                        "name": "handy",
+                        "image": "http://portfoliom.ir/wp-content/uploads/2022/06/cat-access.jpg"
+                    }
                 ]
             },
             "featured": [1, 2, 3]
         },
         "about": {
-            "description": "Lorem ipsum",
-            "services": [
-                { "title": "Service 1", "description": "Lorem ipsum ", "itemIcon": "SVG", "itemTitle": "Title Test" },
-                { "title": "Service 2", "description": "Lorem ipsum 2", "itemIcon": "SVG 2", "itemTitle": "Title Test 2" }
-            ],
-            "partners": [
-                { "icon": "svg icon / image url", "name": "google", "title": "description " },
-                { "icon": "svg icon / image url", "name": "Apple", "title": "description apple " }
-            ]
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "services": {
+                "title": "Our Services",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod Lorem ipsum dolor sit amet.",
+                "icons": [
+                    {
+                        "title": "Delivery Services",
+                        "itemIcon": "bi:truck"
+                    },
+                    {
+                        "title": "Shipping & Return",
+                        "itemIcon": "bx:transfer"
+                    },
+                    {
+                        "title": "Promotion",
+                        "itemIcon": "bi:percent"
+                    },
+                    {
+                        "title": "24 Hours Service",
+                        "itemIcon": "ant-design:user-outlined"
+                    }
+                ]
+            },
+            "partners": {
+                "title": "Our Brands",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod Lorem ipsum dolor sit amet.",
+                "data": [
+                    { "icon": "gg:adidas", "name": "adidas" },
+                    { "icon": "simple-icons:nike", "name": "nike" },
+                    { "icon": "ant-design:apple-filled", "name": "apple" },
+                    { "icon": "akar-icons:google-fill", "name": "google" },
+                    { "icon": "bxl:ebayl", "name": "ebay" }
+                ]
+            }
         },
         "contact": {
             "socials": [
