@@ -9,6 +9,8 @@ import ProductsSorting from "../components/ProductsSorting";
 import ReactPaginate from "react-paginate";
 import { useSearchParams } from "react-router-dom";
 import { filterDatasByCats, handleSorting } from "../helpers/handleFilter";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Shop = ({ jsonData, cart, setCart }) => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -47,7 +49,15 @@ const Shop = ({ jsonData, cart, setCart }) => {
         const cartItems = jsonData && jsonData.length > 0 && [...jsonData[0].products.items]; // Clone Object
         const indexOf = cartItems.indexOf(item);
         setCart([...cart, cartItems[indexOf]]);
-        // console.log("cart here", ...cart);
+        toast.success("Wow so easy!", {
+            position: "top-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+        });
     };
 
     useEffect(() => {
@@ -61,7 +71,7 @@ const Shop = ({ jsonData, cart, setCart }) => {
     return (
         <>
             <Navbar jsonData={jsonData} />
-            <Header cart={cart} jsonData={jsonData} />
+            <Header cart={cart} setCart={setCart} jsonData={jsonData} />
 
             <div className="container py-5">
                 <div className="row">
@@ -143,6 +153,18 @@ const Shop = ({ jsonData, cart, setCart }) => {
                 </div>
             </div>
             <Footer jsonData={jsonData} />
+
+            <ToastContainer
+                position="top-left"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </>
     );
 };

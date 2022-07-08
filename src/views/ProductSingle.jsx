@@ -8,7 +8,7 @@ import ProductSingleRelated from "../components/ProductSingleRelated";
 import { useParams } from "react-router-dom";
 import { findDataById } from "../helpers/handleFilter";
 
-const ProductSingle = ({ jsonData }) => {
+const ProductSingle = ({ jsonData, cart, setCart }) => {
     let { id } = useParams();
 
     const itemData = React.useMemo(() => {
@@ -20,7 +20,7 @@ const ProductSingle = ({ jsonData }) => {
     return (
         <>
             <Navbar jsonData={jsonData} />
-            <Header jsonData={jsonData} />
+            <Header cart={cart} setCart={setCart} jsonData={jsonData} />
 
             <section className="bg-light">
                 <div className="container pb-5">

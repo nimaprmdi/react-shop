@@ -1,12 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createFactory } from "react";
+import SearchModal from "./SearchModal";
+import BasketModal from "./BasketModal";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
-// import Button from "react-bootstrap/esm/Button";
-import SearchModal from "./SearchModal";
-const Header = ({ jsonData, cart }) => {
+import { deleteData } from "../helpers/handleFilter";
+
+const Header = ({ jsonData, cart, setCart }) => {
     const [open, setOpen] = useState(false);
 
-    useEffect(() => {}, [jsonData]);
+    // Basket
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const handleRemoveItems = (e) => {
+        setCart(deleteData(cart, e));
+        console.log(cart);
+    };
+
+    useEffect(() => {}, [jsonData, cart]);
 
     return (
         <>
@@ -73,16 +85,26 @@ const Header = ({ jsonData, cart }) => {
                                 </i>
                             </button>
 
-                            <button className="btn nav-icon position-relative text-decoration-none mr-0" href="#">
+                            <button
+                                className="btn nav-icon position-relative text-decoration-none mr-0"
+                                onClick={() => handleShow()}
+                            >
                                 <Icon icon="clarity:shopping-cart-line" />
                                 <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
-                                    {cart > 0 && cart}
+                                    {cart.length > 0 && cart.length}
                                 </span>
                             </button>
                         </div>
                     </div>
                 </div>
             </nav>
+
+            <BasketModal
+                onHandleRemoveItems={(e) => handleRemoveItems(e)}
+                onHandleClose={() => handleClose()}
+                show={show}
+                cart={cart}
+            />
 
             <SearchModal open={open} setOpen={setOpen} />
         </>

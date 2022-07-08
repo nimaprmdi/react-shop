@@ -6,12 +6,12 @@ import ContactForm from "../components/ContactForm";
 import OurMap from "../components/OurMap";
 import ContactUsBanner from "../components/ContactUsBanner";
 
-const Contact = ({ jsonData }) => {
+const Contact = ({ jsonData, cart, setCart }) => {
     useEffect(() => {}, [jsonData]);
     return (
         <>
             <Navbar jsonData={jsonData} />
-            <Header jsonData={jsonData} />
+            <Header cart={cart} setCart={setCart} jsonData={jsonData} />
 
             <ContactUsBanner jsonData={jsonData} />
 

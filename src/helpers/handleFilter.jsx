@@ -30,6 +30,10 @@ const getStarRating = (stars) => {
     return "✮✮✮✮✮✩✩✩✩✩".slice(5 - stars, 10 - stars);
 };
 
+const deleteData = (datas, removedData) => {
+    return datas.filter((data) => data.id !== removedData.id);
+};
+
 const handleSorting = (sorting, data) => {
     switch (sorting) {
         case "a-to-z":
@@ -65,4 +69,16 @@ const getAllTags = (datas) => {
     return tags;
 };
 
-export { filterDatasByCats, filterDatasById, findDataById, getFeaturedProducts, sortDataAtoZ, sortDataZtoA, shuffleData, getStarRating, handleSorting, getAllTags };
+export {
+    filterDatasByCats,
+    filterDatasById,
+    findDataById,
+    getFeaturedProducts,
+    sortDataAtoZ,
+    sortDataZtoA,
+    shuffleData,
+    getStarRating,
+    deleteData,
+    handleSorting,
+    getAllTags,
+};

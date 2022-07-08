@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 import Preloader from "./Preloader";
 
 const FeaturedCategories = ({ jsonData }) => {
-    useEffect(() => {}, [jsonData]);
+    useEffect(() => {
+        console.log(jsonData);
+    }, [jsonData]);
 
     return (
         <section className="container py-5">
