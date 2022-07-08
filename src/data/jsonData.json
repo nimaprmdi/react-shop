@@ -198,6 +198,12 @@
             }
         },
         "contact": {
+            "location": { "latitude": "-70.9", "longitude": "42.35" },
+            "title": "Contact Us",
+            "description": "Proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet.",
+            "email": "info@company.com",
+            "address": "123 Consectetur at ligula 10660",
+            "phone": "010-020-0340",
             "socials": [
                 {
                     "icon": "ant-design:facebook-filled",
@@ -219,13 +225,7 @@
                     "name": "linkedin",
                     "address": "https://www.linkedin.com/"
                 }
-            ],
-            "location": { "latitude": "-70.9", "longitude": "42.35" },
-            "title": "Zay Shop",
-            "description": "Proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet.",
-            "email": "info@company.com",
-            "address": "123 Consectetur at ligula 10660",
-            "phone": "010-020-0340"
+            ]
         },
         "navigation": [
             { "title": "Home", "address": "/", "isRoute": true },

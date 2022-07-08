@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Product = ({ item: itemData, onHandleAddCart }) => {
     useEffect(() => {
-        itemData && itemData.length > 0 && console.log(itemData);
+        // itemData && itemData.length > 0 && console.log(itemData);
     }, [itemData]);
 
     return (

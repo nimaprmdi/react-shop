@@ -57,16 +57,6 @@ function App() {
                     </Routes>
                 </div>
             </BrowserRouter>
-
-            {/* <Home /> */}
-
-            {/* <About /> */}
-
-            {/* <Shop /> */}
-
-            {/* <ProductSingle /> */}
-
-            {/* <Contact /> */}
         </div>
     );
 }

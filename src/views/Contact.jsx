@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
@@ -6,19 +6,20 @@ import ContactForm from "../components/ContactForm";
 import OurMap from "../components/OurMap";
 import ContactUsBanner from "../components/ContactUsBanner";
 
-const Contact = () => {
+const Contact = ({ jsonData }) => {
+    useEffect(() => {}, [jsonData]);
     return (
         <>
-            <Navbar />
-            <Header />
+            <Navbar jsonData={jsonData} />
+            <Header jsonData={jsonData} />
 
-            <ContactUsBanner />
+            <ContactUsBanner jsonData={jsonData} />
 
-            <OurMap />
+            <OurMap jsonData={jsonData} />
 
             <ContactForm />
 
-            <Footer />
+            <Footer jsonData={jsonData} />
         </>
     );
 };

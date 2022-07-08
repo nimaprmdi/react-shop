@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-const OurMap = () => {
+const OurMap = ({ jsonData }) => {
     mapboxgl.accessToken = "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw";
 
     const mapContainer = useRef(null);
@@ -19,7 +19,12 @@ const OurMap = () => {
             center: [lng, lat],
             zoom: zoom,
         });
-    });
+    }, []);
+
+    useEffect(() => {
+        jsonData && jsonData.length > 0 && setLng(jsonData[0].contact.location.latitude);
+        jsonData && jsonData.length > 0 && setLat(jsonData[0].contact.location.longitude);
+    }, [jsonData]);
 
     return <div id="mapid" ref={mapContainer} className="map-container" style={{ width: "100%", height: "300px" }} />;
 };

@@ -47,7 +47,7 @@ const Shop = ({ jsonData, cart, setCart }) => {
         const cartItems = jsonData && jsonData.length > 0 && [...jsonData[0].products.items]; // Clone Object
         const indexOf = cartItems.indexOf(item);
         setCart([...cart, cartItems[indexOf]]);
-        console.log("cart here", ...cart);
+        // console.log("cart here", ...cart);
     };
 
     useEffect(() => {
