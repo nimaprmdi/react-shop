@@ -6,7 +6,7 @@ import ProductSingleContent from "../components/ProductSingleContent";
 import ProductSingleHead from "../components/ProductSingleHead";
 import ProductSingleRelated from "../components/ProductSingleRelated";
 import { useParams } from "react-router-dom";
-import { findDataById } from "../helpers/handleFilter";
+import { findDataById, getRelatedProducts } from "../helpers/handleFilter";
 
 const ProductSingle = ({ jsonData, cart, setCart }) => {
     let { id } = useParams();

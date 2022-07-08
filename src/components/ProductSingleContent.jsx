@@ -27,10 +27,6 @@ const ProductSingleContent = ({ itemData }) => {
                         <h1 className="h2">{itemData.name}</h1>
                         <p className="h3 py-2">${itemData.price}</p>
                         <p className="py-2">
-                            <i className="fa fa-star text-warning"></i>
-                            <i className="fa fa-star text-warning"></i>
-                            <i className="fa fa-star text-warning"></i>
-                            <i className="fa fa-star text-warning"></i>
                             <i className="fa fa-star text-secondary"></i>
                             <span className="list-inline-item text-dark fs-4">
                                 Rating {getStarRating(itemData.rating)}

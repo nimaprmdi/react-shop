@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Preloader from "./Preloader";
+import { Link } from "react-router-dom";
 
 const FeaturedCategories = ({ jsonData }) => {
     useEffect(() => {
@@ -20,12 +21,15 @@ const FeaturedCategories = ({ jsonData }) => {
                         {jsonData[0].products.category.items.map((cat) => {
                             return (
                                 <div className="col-12 col-md-4 p-5 mt-3" key={cat.id}>
-                                    <a href="#">
+                                    <Link to={`/shop/?category=${cat.name}`}>
                                         <img src={cat.image} className="rounded-circle img-fluid border" />
-                                    </a>
+                                    </Link>
+
                                     <h5 className="text-center mt-3 mb-3">{cat.name}</h5>
                                     <p className="text-center">
-                                        <a className="btn btn-success">Go Shop</a>
+                                        <Link className="btn btn-success" to={`/shop/?category=${cat.name}`}>
+                                            Go Shop
+                                        </Link>
                                     </p>
                                 </div>
                             );
