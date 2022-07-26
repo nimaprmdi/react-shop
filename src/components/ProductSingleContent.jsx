@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Preloader from "./Preloader";
 import { getStarRating } from "../helpers/handleFilter";
 
-const ProductSingleContent = ({ itemData }) => {
-    const [itemCount, setItemCount] = useState(0);
+const ProductSingleContent = ({ itemData, onHandleAddCart }) => {
+    const [itemCount, setItemCount] = useState(1);
 
     const handleIncrement = () => {
         setItemCount(itemCount + 1);
@@ -115,6 +115,7 @@ const ProductSingleContent = ({ itemData }) => {
                                         className="btn btn-success btn-lg"
                                         name="submit"
                                         value="addtocard"
+                                        onClick={onHandleAddCart}
                                     >
                                         Add To Cart
                                     </button>

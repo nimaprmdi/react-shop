@@ -6,7 +6,9 @@ import ProductSingleContent from "../components/ProductSingleContent";
 import ProductSingleHead from "../components/ProductSingleHead";
 import ProductSingleRelated from "../components/ProductSingleRelated";
 import { useParams } from "react-router-dom";
-import { findDataById, getRelatedProducts } from "../helpers/handleFilter";
+import { findDataById } from "../helpers/handleFilter";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductSingle = ({ jsonData, cart, setCart }) => {
     let { id } = useParams();
@@ -14,6 +16,21 @@ const ProductSingle = ({ jsonData, cart, setCart }) => {
     const itemData = React.useMemo(() => {
         return jsonData && jsonData.length > 0 && findDataById(jsonData[0].products.items, parseInt(id));
     }, [jsonData, id]);
+
+    const handleAddCart = (item) => {
+        const cartItems = jsonData && jsonData.length > 0 && [...jsonData[0].products.items];
+        const indexOf = cartItems.indexOf(item);
+        setCart([...cart, cartItems[indexOf]]);
+        toast.success("Product Added", {
+            position: "top-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+        });
+    };
 
     useEffect(() => {}, [jsonData, itemData]);
 
@@ -30,7 +47,7 @@ const ProductSingle = ({ jsonData, cart, setCart }) => {
                         </div>
 
                         <div className="col-lg-7 mt-5">
-                            <ProductSingleContent itemData={itemData} />
+                            <ProductSingleContent onHandleAddCart={() => handleAddCart(itemData)} itemData={itemData} />
                         </div>
                     </div>
                 </div>
@@ -39,6 +56,18 @@ const ProductSingle = ({ jsonData, cart, setCart }) => {
             <ProductSingleRelated />
 
             <Footer jsonData={jsonData} />
+
+            <ToastContainer
+                position="top-left"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </>
     );
 };
