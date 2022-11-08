@@ -1,227 +1,242 @@
 [
-    {
-        "slider": [
-            {
-                "primaryTitle": "Zay eCommerce",
-                "title": "Tiny and Perfect eCommerce Template",
-                "description": "Zay Shop is an eCommerce HTML5 CSS template with latest version of Bootstrap 5 (beta 1). This template is 100% free provided byTemplateMowebsite. Image credits go toFreepik Stories,Unsplash andIcons 8.",
-                "image": "http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg"
-            },
-            {
-                "primaryTitle": "Proident occaecat",
-                "title": "Aliquip ex ea commodo consequat",
-                "description": "You are permitted to use this Zay CSS template for your commercial websites. You are not permitted to re-distribute the template ZIP file in any kind of template collection websites.",
-                "image": "http://portfoliom.ir/wp-content/uploads/2022/06/img2.jpg"
-            },
-            {
-                "primaryTitle": "Repr in voluptate",
-                "title": "Ullamco laboris nisi ut",
-                "description": "We bring you 100% free CSS templates for your websites. If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.",
-                "image": "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg"
-            }
-        ],
-        "products": {
-            "items": [
-                {
-                    "id": 1,
-                    "featuredImage": "http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg",
-                    "sliderImages": [
-                        "http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg",
-                        "https://cdn.vergleich.org/img/comparison-tables/olaplex-nr-4-bindungspflege-shampoo-500x500.jpg",
-                        "https://m.media-amazon.com/images/I/41V94bHKRnL.jpg",
-                        "https://www.sailersapo.de/documents/products/Zoom/Ei%20Shampoo%20500x500.jpg?ver=1649058550",
-                        "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg"
-                    ],
-                    "name": "A bag",
-                    "price": 50,
-                    "category": ["bag"],
-                    "tags": ["nike", "addidas", "dodge"],
-                    "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
-                    "sizes": ["xs", "md"],
-                    "rating": 5,
-                    "brand": "hermes",
-                    "colors": ["red", "green"]
-                },
-                {
-                    "id": 2,
-                    "featuredImage": "http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg",
-                    "sliderImages": [
-                        "http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg",
-                        "http://portfoliom.ir/wp-content/uploads/2022/06/img1.jpg"
-                    ],
-                    "name": "B bag",
-                    "price": 50,
-                    "category": ["bag"],
-                    "tags": ["hermes", "bijan", "bugatti"],
-                    "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
-                    "sizes": ["xs", "md"],
-                    "rating": 5,
-                    "brand": "hermes",
-                    "colors": ["red", "green"]
-                },
-                {
-                    "id": 3,
-                    "featuredImage": "http://portfoliom.ir/wp-content/uploads/2022/06/img2.jpg",
-                    "sliderImages": [
-                        "http://portfoliom.ir/wp-content/uploads/2022/06/img2.jpg",
-                        "http://portfoliom.ir/wp-content/uploads/2022/06/img2.jpg"
-                    ],
-                    "name": "A watch",
-                    "price": 30,
-                    "category": ["watch"],
-                    "tags": ["hermes", "bijan", "bugatti"],
-                    "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
-                    "sizes": ["xs", "md"],
-                    "rating": 2,
-                    "brand": "hermes",
-                    "colors": ["red", "blue"]
-                },
-                {
-                    "id": 4,
-                    "featuredImage": "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg",
-                    "sliderImages": [
-                        "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg",
-                        "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg"
-                    ],
-                    "name": "B watch",
-                    "price": 30,
-                    "category": ["watch"],
-                    "tags": ["hermes", "bijan", "bugatti"],
-                    "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
-                    "sizes": ["xs", "md"],
-                    "rating": 2,
-                    "brand": "hermes",
-                    "colors": ["red", "blue"]
-                },
-                {
-                    "id": 5,
-                    "featuredImage": "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg",
-                    "sliderImages": [
-                        "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg",
-                        "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg"
-                    ],
-                    "name": "A Shoes",
-                    "price": 30,
-                    "category": ["shoes"],
-                    "tags": ["hermes", "bijan", "bugatti"],
-                    "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
-                    "sizes": ["xs", "md"],
-                    "rating": 2,
-                    "brand": "hermes",
-                    "colors": ["red", "blue"]
-                },
-                {
-                    "id": 6,
-                    "featuredImage": "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg",
-                    "sliderImages": [
-                        "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg",
-                        "http://portfoliom.ir/wp-content/uploads/2022/06/img3.jpg"
-                    ],
-                    "name": "B Shoes",
-                    "price": 30,
-                    "category": ["shoes"],
-                    "tags": ["hermes", "bijan", "bugatti"],
-                    "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
-                    "sizes": ["xs", "md"],
-                    "rating": 2,
-                    "brand": "hermes",
-                    "colors": ["red", "blue"]
-                }
-            ],
-            "category": {
-                "title": "Categories of The Month",
-                "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "items": [
-                    {
-                        "id": 1,
-                        "name": "watch",
-                        "image": "http://portfoliom.ir/wp-content/uploads/2022/06/cat-watch.jpg"
-                    },
-                    {
-                        "id": 2,
-                        "name": "shoes",
-                        "image": "http://portfoliom.ir/wp-content/uploads/2022/06/cat-shoes.jpg"
-                    },
-                    {
-                        "id": 3,
-                        "name": "accessories",
-                        "image": "http://portfoliom.ir/wp-content/uploads/2022/06/cat-access.jpg"
-                    }
-                ]
-            },
-            "featured": [1, 2, 3]
+  {
+    "slider": [
+      {
+        "primaryTitle": "Zay eCommerce",
+        "title": "Tiny and Perfect eCommerce Template",
+        "description": "Zay Shop is an eCommerce HTML5 CSS template with latest version of Bootstrap 5 (beta 1). This template is 100% free provided byTemplateMowebsite. Image credits go toFreepik Stories,Unsplash andIcons 8.",
+        "image": "http://nimapourmohammadi.com/wp-content/uploads/2022/11/banner_img_01.jpg"
+      },
+      {
+        "primaryTitle": "Proident occaecat",
+        "title": "Aliquip ex ea commodo consequat",
+        "description": "You are permitted to use this Zay CSS template for your commercial websites. You are not permitted to re-distribute the template ZIP file in any kind of template collection websites.",
+        "image": "http://nimapourmohammadi.com/wp-content/uploads/2022/11/banner_img_02.jpg"
+      },
+      {
+        "primaryTitle": "Repr in voluptate",
+        "title": "Ullamco laboris nisi ut",
+        "description": "We bring you 100% free CSS templates for your websites. If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.",
+        "image": "http://nimapourmohammadi.com/wp-content/uploads/2022/11/banner_img_03.jpg"
+      }
+    ],
+    "products": {
+      "items": [
+        {
+          "id": 1,
+          "featuredImage": "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
+          "sliderImages": [
+            "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
+            "https://cdn.vergleich.org/img/comparison-tables/olaplex-nr-4-bindungspflege-shampoo-500x500.jpg",
+            "https://m.media-amazon.com/images/I/41V94bHKRnL.jpg",
+            "https://www.sailersapo.de/documents/products/Zoom/Ei%20Shampoo%20500x500.jpg?ver=1649058550",
+            "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg"
+          ],
+          "name": "A bag",
+          "price": 50,
+          "category": ["bag"],
+          "tags": ["nike", "addidas", "dodge"],
+          "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
+          "sizes": ["xs", "md"],
+          "rating": 5,
+          "brand": "hermes",
+          "colors": ["red", "green"]
         },
-        "about": {
-            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "services": {
-                "title": "Our Services",
-                "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod Lorem ipsum dolor sit amet.",
-                "icons": [
-                    {
-                        "title": "Delivery Services",
-                        "itemIcon": "bi:truck"
-                    },
-                    {
-                        "title": "Shipping & Return",
-                        "itemIcon": "bx:transfer"
-                    },
-                    {
-                        "title": "Promotion",
-                        "itemIcon": "bi:percent"
-                    },
-                    {
-                        "title": "24 Hours Service",
-                        "itemIcon": "ant-design:user-outlined"
-                    }
-                ]
-            },
-            "partners": {
-                "title": "Our Brands",
-                "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod Lorem ipsum dolor sit amet.",
-                "data": [
-                    { "icon": "gg:adidas", "name": "adidas" },
-                    { "icon": "simple-icons:nike", "name": "nike" },
-                    { "icon": "ant-design:apple-filled", "name": "apple" },
-                    { "icon": "akar-icons:google-fill", "name": "google" },
-                    { "icon": "bxl:ebayl", "name": "ebay" }
-                ]
-            }
+        {
+          "id": 2,
+          "featuredImage": "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
+          "sliderImages": [
+            "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
+            "https://cdn.vergleich.org/img/comparison-tables/olaplex-nr-4-bindungspflege-shampoo-500x500.jpg",
+            "https://m.media-amazon.com/images/I/41V94bHKRnL.jpg",
+            "https://www.sailersapo.de/documents/products/Zoom/Ei%20Shampoo%20500x500.jpg?ver=1649058550",
+            "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg"
+          ],
+          "name": "B bag",
+          "price": 50,
+          "category": ["bag"],
+          "tags": ["hermes", "bijan", "bugatti"],
+          "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
+          "sizes": ["xs", "md"],
+          "rating": 5,
+          "brand": "hermes",
+          "colors": ["red", "green"]
         },
-        "contact": {
-            "location": { "latitude": "-70.9", "longitude": "42.35" },
-            "title": "Contact Us",
-            "description": "Proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet.",
-            "email": "info@company.com",
-            "address": "123 Consectetur at ligula 10660",
-            "phone": "010-020-0340",
-            "socials": [
-                {
-                    "icon": "ant-design:facebook-filled",
-                    "name": "facebook",
-                    "address": "https://www.telegram.com/"
-                },
-                {
-                    "icon": "akar-icons:instagram-fill",
-                    "name": "instagram",
-                    "address": "https://www.instagram.com/"
-                },
-                {
-                    "icon": "akar-icons:twitter-fill",
-                    "name": "twitter",
-                    "address": "https://www.twitter.com/"
-                },
-                {
-                    "icon": "akar-icons:linkedin-box-fill",
-                    "name": "linkedin",
-                    "address": "https://www.linkedin.com/"
-                }
-            ]
+        {
+          "id": 3,
+          "featuredImage": "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
+          "sliderImages": [
+            "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
+            "https://cdn.vergleich.org/img/comparison-tables/olaplex-nr-4-bindungspflege-shampoo-500x500.jpg",
+            "https://m.media-amazon.com/images/I/41V94bHKRnL.jpg",
+            "https://www.sailersapo.de/documents/products/Zoom/Ei%20Shampoo%20500x500.jpg?ver=1649058550",
+            "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg"
+          ],
+          "name": "A watch",
+          "price": 30,
+          "category": ["watch"],
+          "tags": ["hermes", "bijan", "bugatti"],
+          "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
+          "sizes": ["xs", "md"],
+          "rating": 2,
+          "brand": "hermes",
+          "colors": ["red", "blue"]
         },
-        "navigation": [
-            { "title": "Home", "address": "/", "isRoute": true },
-            { "title": "About", "address": "/about", "isRoute": true },
-            { "title": "Shop", "address": "/shop", "isRoute": true },
-            { "title": "Contact", "address": "/contact", "isRoute": true }
+        {
+          "id": 4,
+          "featuredImage": "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
+          "sliderImages": [
+            "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
+            "https://cdn.vergleich.org/img/comparison-tables/olaplex-nr-4-bindungspflege-shampoo-500x500.jpg",
+            "https://m.media-amazon.com/images/I/41V94bHKRnL.jpg",
+            "https://www.sailersapo.de/documents/products/Zoom/Ei%20Shampoo%20500x500.jpg?ver=1649058550",
+            "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg"
+          ],
+          "name": "B watch",
+          "price": 30,
+          "category": ["watch"],
+          "tags": ["hermes", "bijan", "bugatti"],
+          "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
+          "sizes": ["xs", "md"],
+          "rating": 2,
+          "brand": "hermes",
+          "colors": ["red", "blue"]
+        },
+        {
+          "id": 5,
+          "featuredImage": "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
+          "sliderImages": [
+            "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
+            "https://cdn.vergleich.org/img/comparison-tables/olaplex-nr-4-bindungspflege-shampoo-500x500.jpg",
+            "https://m.media-amazon.com/images/I/41V94bHKRnL.jpg",
+            "https://www.sailersapo.de/documents/products/Zoom/Ei%20Shampoo%20500x500.jpg?ver=1649058550",
+            "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg"
+          ],
+          "name": "A Shoes",
+          "price": 30,
+          "category": ["shoes"],
+          "tags": ["hermes", "bijan", "bugatti"],
+          "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
+          "sizes": ["xs", "md"],
+          "rating": 2,
+          "brand": "hermes",
+          "colors": ["red", "blue"]
+        },
+        {
+          "id": 6,
+          "featuredImage": "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
+          "sliderImages": [
+            "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
+            "https://cdn.vergleich.org/img/comparison-tables/olaplex-nr-4-bindungspflege-shampoo-500x500.jpg",
+            "https://m.media-amazon.com/images/I/41V94bHKRnL.jpg",
+            "https://www.sailersapo.de/documents/products/Zoom/Ei%20Shampoo%20500x500.jpg?ver=1649058550",
+            "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg"
+          ],
+          "name": "B Shoes",
+          "price": 30,
+          "category": ["shoes"],
+          "tags": ["hermes", "bijan", "bugatti"],
+          "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
+          "sizes": ["xs", "md"],
+          "rating": 2,
+          "brand": "hermes",
+          "colors": ["red", "blue"]
+        }
+      ],
+      "category": {
+        "title": "Categories of The Month",
+        "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "items": [
+          {
+            "id": 1,
+            "name": "watch",
+            "image": "http://nimapourmohammadi.com/wp-content/uploads/2022/11/category_img_01.jpg"
+          },
+          {
+            "id": 2,
+            "name": "shoes",
+            "image": "http://nimapourmohammadi.com/wp-content/uploads/2022/11/category_img_02.jpg"
+          },
+          {
+            "id": 3,
+            "name": "accessories",
+            "image": "http://nimapourmohammadi.com/wp-content/uploads/2022/11/category_img_03.jpg"
+          }
         ]
-    }
+      },
+      "featured": [1, 2, 3]
+    },
+    "about": {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "services": {
+        "title": "Our Services",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod Lorem ipsum dolor sit amet.",
+        "icons": [
+          {
+            "title": "Delivery Services",
+            "itemIcon": "bi:truck"
+          },
+          {
+            "title": "Shipping & Return",
+            "itemIcon": "bx:transfer"
+          },
+          {
+            "title": "Promotion",
+            "itemIcon": "bi:percent"
+          },
+          {
+            "title": "24 Hours Service",
+            "itemIcon": "ant-design:user-outlined"
+          }
+        ]
+      },
+      "partners": {
+        "title": "Our Brands",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod Lorem ipsum dolor sit amet.",
+        "data": [
+          { "icon": "gg:adidas", "name": "adidas" },
+          { "icon": "simple-icons:nike", "name": "nike" },
+          { "icon": "ant-design:apple-filled", "name": "apple" },
+          { "icon": "akar-icons:google-fill", "name": "google" },
+          { "icon": "bxl:ebayl", "name": "ebay" }
+        ]
+      }
+    },
+    "contact": {
+      "location": { "latitude": "-70.9", "longitude": "42.35" },
+      "title": "Contact Us",
+      "description": "Proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet.",
+      "email": "info@company.com",
+      "address": "123 Consectetur at ligula 10660",
+      "phone": "010-020-0340",
+      "socials": [
+        {
+          "icon": "ant-design:facebook-filled",
+          "name": "facebook",
+          "address": "https://www.telegram.com/"
+        },
+        {
+          "icon": "akar-icons:instagram-fill",
+          "name": "instagram",
+          "address": "https://www.instagram.com/"
+        },
+        {
+          "icon": "akar-icons:twitter-fill",
+          "name": "twitter",
+          "address": "https://www.twitter.com/"
+        },
+        {
+          "icon": "akar-icons:linkedin-box-fill",
+          "name": "linkedin",
+          "address": "https://www.linkedin.com/"
+        }
+      ]
+    },
+    "navigation": [
+      { "title": "Home", "address": "/", "isRoute": true },
+      { "title": "About", "address": "/about", "isRoute": true },
+      { "title": "Shop", "address": "/shop", "isRoute": true },
+      { "title": "Contact", "address": "/contact", "isRoute": true }
+    ]
+  }
 ]
