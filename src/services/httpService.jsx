@@ -28,7 +28,7 @@ axiosApiInstance.interceptors.response.use(
             toast.error(error.message);
         }
 
-        window.location.href = "/refresh";
+        window.location.href = "#/refresh";
 
         return Promise.reject(error);
     }

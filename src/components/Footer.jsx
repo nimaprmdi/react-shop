@@ -1,148 +1,157 @@
 import React, { useEffect, useState } from "react";
 import Preloader from "../components/Preloader";
 import { Icon } from "@iconify/react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Footer = () => {
     const [data, setData] = useState({});
     const productState = useSelector((state) => state.productState);
+    const { pathname } = useLocation();
 
     useEffect(() => {
         setData(productState.products.record);
     }, [productState, data]);
 
     return (
-        <footer className="bg-dark" id="tempaltemo_footer">
-            <div className="container">
-                {data && data[0] ? (
-                    <>
-                        <div className="row">
-                            <div className="col-md-4 pt-5">
-                                <h2 className="h2 text-success border-bottom pb-3 border-light logo">
-                                    {data[0].contact.title}
-                                </h2>
-                                <ul className="list-unstyled text-light footer-link-list">
-                                    <li>
-                                        <i className="fas fa-map-marker-alt fa-fw mx-2 my-0">
-                                            <Icon icon="fontisto:map-marker-alt" />
-                                        </i>
-                                        {data[0].contact.address}
-                                    </li>
-                                    <li>
-                                        <i className="fa fa-phone fa-fw  mx-2 my-0">
-                                            <Icon icon="carbon:phone-filled" />
-                                        </i>
-                                        <a className="text-decoration-none" href={`tel:${data[0].contact.phone}`}>
-                                            {data[0].contact.phone}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <i className="fa fa-envelope fa-fw  mx-2 my-0">
-                                            <Icon icon="ic:sharp-mail" />
-                                        </i>
-                                        <a className="text-decoration-none" href={`mailto:${data[0].contact.email}`}>
-                                            {data[0].contact.email}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div className="col-md-4 pt-5">
-                                <h2 className="h2 text-light border-bottom pb-3 border-light">Products</h2>
-                                <ul className="list-unstyled text-light footer-link-list">
-                                    {data[0].products.category.items.map((cat) => {
-                                        return (
-                                            <li key={cat.id}>
-                                                <Link className="text-decoration-none text-capitalize" to={cat.name}>
-                                                    {cat.name}
-                                                </Link>
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            </div>
-
-                            <div className="col-md-4 pt-5">
-                                <h2 className="h2 text-light border-bottom pb-3 border-light">Navigation</h2>
-                                <ul className="list-unstyled text-light footer-link-list">
-                                    {data[0].navigation.map((nav, index) => {
-                                        return (
-                                            <li key={index}>
-                                                <Link to={nav.address} className="text-decoration-none">
-                                                    {nav.title}
-                                                </Link>
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="row text-light mb-4">
-                            <div className="col-12 mb-3">
-                                <div className="w-100 my-3 border-top border-light"></div>
-                            </div>
-                            <div className="col-auto me-auto">
-                                <ul className="list-inline text-left footer-icons">
-                                    {data[0].contact.socials.map((social) => {
-                                        return (
-                                            <li
-                                                key={social.name}
-                                                className="list-inline-item border border-light rounded-circle text-center"
+        pathname !== "/refresh" && (
+            <footer className="bg-dark" id="tempaltemo_footer">
+                <div className="container">
+                    {data && data[0] ? (
+                        <>
+                            <div className="row">
+                                <div className="col-md-4 pt-5">
+                                    <h2 className="h2 text-success border-bottom pb-3 border-light logo">
+                                        {data[0].contact.title}
+                                    </h2>
+                                    <ul className="list-unstyled text-light footer-link-list">
+                                        <li>
+                                            <i className="fas fa-map-marker-alt fa-fw mx-2 my-0">
+                                                <Icon icon="fontisto:map-marker-alt" />
+                                            </i>
+                                            {data[0].contact.address}
+                                        </li>
+                                        <li>
+                                            <i className="fa fa-phone fa-fw  mx-2 my-0">
+                                                <Icon icon="carbon:phone-filled" />
+                                            </i>
+                                            <a className="text-decoration-none" href={`tel:${data[0].contact.phone}`}>
+                                                {data[0].contact.phone}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <i className="fa fa-envelope fa-fw  mx-2 my-0">
+                                                <Icon icon="ic:sharp-mail" />
+                                            </i>
+                                            <a
+                                                className="text-decoration-none"
+                                                href={`mailto:${data[0].contact.email}`}
                                             >
-                                                <a
-                                                    className="text-light text-decoration-none"
-                                                    target="_blank"
-                                                    href={social.address}
-                                                >
-                                                    <Icon icon={social.icon} />
-                                                </a>
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            </div>
-                            <div className="col-auto">
-                                <label className="sr-only" htmlFor="subscribeEmail">
-                                    Email address
-                                </label>
-                                <div className="input-group mb-2">
-                                    <input
-                                        type="text"
-                                        className="form-control bg-dark border-light"
-                                        id="subscribeEmail"
-                                        placeholder="Email address"
-                                    />
-                                    <div className="input-group-text btn-success text-light">Subscribe</div>
+                                                {data[0].contact.email}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div className="col-md-4 pt-5">
+                                    <h2 className="h2 text-light border-bottom pb-3 border-light">Products</h2>
+                                    <ul className="list-unstyled text-light footer-link-list">
+                                        {data[0].products.category.items.map((cat) => {
+                                            return (
+                                                <li key={cat.id}>
+                                                    <Link
+                                                        className="text-decoration-none text-capitalize"
+                                                        to={cat.name}
+                                                    >
+                                                        {cat.name}
+                                                    </Link>
+                                                </li>
+                                            );
+                                        })}
+                                    </ul>
+                                </div>
+
+                                <div className="col-md-4 pt-5">
+                                    <h2 className="h2 text-light border-bottom pb-3 border-light">Navigation</h2>
+                                    <ul className="list-unstyled text-light footer-link-list">
+                                        {data[0].navigation.map((nav, index) => {
+                                            return (
+                                                <li key={index}>
+                                                    <Link to={nav.address} className="text-decoration-none">
+                                                        {nav.title}
+                                                    </Link>
+                                                </li>
+                                            );
+                                        })}
+                                    </ul>
                                 </div>
                             </div>
-                        </div>
-                    </>
-                ) : (
-                    <Preloader />
-                )}
-            </div>
 
-            <div className="w-100 bg-black py-3">
-                <div className="container">
-                    <div className="row pt-2">
-                        <div className="col-12">
-                            <p className="text-left text-light">
-                                Converted to React By{" "}
-                                <a rel="sponsored" href="https://nimapm.com" target="_blank">
-                                    NimaPm
-                                </a>{" "}
-                                | Designed by{" "}
-                                <a rel="sponsored" href="https://templatemo.com" target="_blank">
-                                    TemplateMo Free Themes
-                                </a>
-                            </p>
+                            <div className="row text-light mb-4">
+                                <div className="col-12 mb-3">
+                                    <div className="w-100 my-3 border-top border-light"></div>
+                                </div>
+                                <div className="col-auto me-auto">
+                                    <ul className="list-inline text-left footer-icons">
+                                        {data[0].contact.socials.map((social) => {
+                                            return (
+                                                <li
+                                                    key={social.name}
+                                                    className="list-inline-item border border-light rounded-circle text-center"
+                                                >
+                                                    <a
+                                                        className="text-light text-decoration-none"
+                                                        target="_blank"
+                                                        href={social.address}
+                                                    >
+                                                        <Icon icon={social.icon} />
+                                                    </a>
+                                                </li>
+                                            );
+                                        })}
+                                    </ul>
+                                </div>
+                                <div className="col-auto">
+                                    <label className="sr-only" htmlFor="subscribeEmail">
+                                        Email address
+                                    </label>
+                                    <div className="input-group mb-2">
+                                        <input
+                                            type="text"
+                                            className="form-control bg-dark border-light"
+                                            id="subscribeEmail"
+                                            placeholder="Email address"
+                                        />
+                                        <div className="input-group-text btn-success text-light">Subscribe</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </>
+                    ) : (
+                        <Preloader />
+                    )}
+                </div>
+
+                <div className="w-100 bg-black py-3">
+                    <div className="container">
+                        <div className="row pt-2">
+                            <div className="col-12">
+                                <p className="text-left text-light">
+                                    Converted to React By{" "}
+                                    <a rel="sponsored" href="https://nimapm.com" target="_blank">
+                                        NimaPm
+                                    </a>{" "}
+                                    | Designed by{" "}
+                                    <a rel="sponsored" href="https://templatemo.com" target="_blank">
+                                        TemplateMo Free Themes
+                                    </a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        )
     );
 };
 
