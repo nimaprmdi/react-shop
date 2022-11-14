@@ -3,8 +3,6 @@ import { Icon } from "@iconify/react";
 import Preloader from "./Preloader";
 
 const Hero = ({ jsonData }) => {
-    useEffect(() => {}, [jsonData]);
-
     return (
         <div id="template-mo-zay-hero-carousel" className="carousel slide" data-bs-ride="carousel">
             <ol className="carousel-indicators">
@@ -22,7 +20,11 @@ const Hero = ({ jsonData }) => {
                                         <>
                                             <>
                                                 <div className="mx-auto col-md-8 col-lg-6 order-lg-last">
-                                                    <img className="img-fluid" src={slider.image} alt={slider.primaryTitle} />
+                                                    <img
+                                                        className="img-fluid"
+                                                        src={slider.image}
+                                                        alt={slider.primaryTitle}
+                                                    />
                                                 </div>
                                                 <div className="col-lg-6 mb-0 d-flex align-items-center">
                                                     <div className="text-align-left align-self-center">
@@ -42,12 +44,22 @@ const Hero = ({ jsonData }) => {
                     <Preloader />
                 )}
             </div>
-            <a className="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+            <a
+                className="carousel-control-prev text-decoration-none w-auto ps-3"
+                href="#template-mo-zay-hero-carousel"
+                role="button"
+                data-bs-slide="prev"
+            >
                 <i className="fas fa-chevron-left">
                     <Icon icon="dashicons:arrow-left-alt2" />
                 </i>
             </a>
-            <a className="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+            <a
+                className="carousel-control-next text-decoration-none w-auto pe-3"
+                href="#template-mo-zay-hero-carousel"
+                role="button"
+                data-bs-slide="next"
+            >
                 <i className="fas fa-chevron-right">
                     <Icon icon="dashicons:arrow-right-alt2" />
                 </i>

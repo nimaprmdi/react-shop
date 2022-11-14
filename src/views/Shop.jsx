@@ -10,9 +10,15 @@ import ReactPaginate from "react-paginate";
 import { useSearchParams } from "react-router-dom";
 import { filterDatasByCats, handleSorting } from "../helpers/handleFilter";
 import { ToastContainer, toast } from "react-toastify";
+import { addItem } from "../redux/cart/cartAction";
 import "react-toastify/dist/ReactToastify.css";
 
+import { useSelector, useDispatch } from "react-redux";
+
 const Shop = ({ jsonData, cart, setCart }) => {
+    const dispatch = useDispatch();
+    const cartState = useSelector((state) => state.cartState);
+
     const [searchParams, setSearchParams] = useSearchParams();
     let cats = searchParams.get("category");
     let sorting = searchParams.get("sorting");
@@ -46,18 +52,21 @@ const Shop = ({ jsonData, cart, setCart }) => {
     };
 
     const handleAddCart = (item) => {
-        const cartItems = jsonData && jsonData.length > 0 && [...jsonData[0].products.items]; // Clone Object
-        const indexOf = cartItems.indexOf(item);
-        setCart([...cart, cartItems[indexOf]]);
-        toast.success("Product Added", {
-            position: "top-left",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: false,
-            progress: undefined,
-        });
+        // const cartItems = jsonData && jsonData.length > 0 && [...jsonData[0].products.items]; // Clone Object
+        // const indexOf = cartItems.indexOf(item);
+        // setCart([...cart, cartItems[indexOf]]);
+        // toast.success("Product Added", {
+        //     position: "top-left",
+        //     autoClose: 5000,
+        //     hideProgressBar: false,
+        //     closeOnClick: true,
+        //     pauseOnHover: true,
+        //     draggable: false,
+        //     progress: undefined,
+        // });
+
+        console.log("item", item);
+        dispatch(addItem(item));
     };
 
     useEffect(() => {

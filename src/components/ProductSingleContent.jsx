@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Preloader from "./Preloader";
 import { getStarRating } from "../helpers/handleFilter";
+import { useSelector, useDispatch } from "react-redux";
 
 const ProductSingleContent = ({ itemData, onHandleAddCart }) => {
     const [itemCount, setItemCount] = useState(1);
+    const dispatch = useDispatch();
 
     const handleIncrement = () => {
         setItemCount(itemCount + 1);
@@ -13,11 +15,15 @@ const ProductSingleContent = ({ itemData, onHandleAddCart }) => {
         itemCount !== 0 && setItemCount(itemCount - 1);
     };
 
+    const handleAddCart = (e) => {
+        e.preventDefault();
+        dispatch({ type: "ADD_ITEM_SINGLE", payload: { ...itemData, quantity: itemCount } });
+        setItemCount(0);
+    };
+
     const submit = (e) => {
         e.preventDefault();
     };
-
-    useEffect(() => {}, [itemData]);
 
     return (
         <div className="card">
@@ -60,7 +66,7 @@ const ProductSingleContent = ({ itemData, onHandleAddCart }) => {
                             })}
                         </ul>
 
-                        <form action="" method="GET" onSubmit={(e) => submit(e)}>
+                        <form onSubmit={submit}>
                             <input type="hidden" name="product-title" value="Activewear" />
                             <div className="row">
                                 {/* <div className="col-auto">
@@ -115,7 +121,8 @@ const ProductSingleContent = ({ itemData, onHandleAddCart }) => {
                                         className="btn btn-success btn-lg"
                                         name="submit"
                                         value="addtocard"
-                                        onClick={onHandleAddCart}
+                                        onClick={handleAddCart}
+                                        disabled={!itemCount}
                                     >
                                         Add To Cart
                                     </button>
@@ -123,10 +130,8 @@ const ProductSingleContent = ({ itemData, onHandleAddCart }) => {
 
                                 <div className="col d-grid">
                                     <button
-                                        type="submit"
                                         className="btn btn-primary btn-lg text-capitalize text-white"
-                                        name="submit"
-                                        value="buy"
+                                        onClick={() => dispatch({ type: "ADD_TO_WISH_LIST", payload: itemData })}
                                     >
                                         Add to wish list
                                     </button>

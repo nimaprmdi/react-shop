@@ -11,8 +11,6 @@ const Categories = ({ searchParams, setSearchParams, jsonData }) => {
         setSearchParams(updatedSearchParams.toString());
     };
 
-    useEffect(() => {}, [jsonData]);
-
     return (
         <div className="c-categories">
             <h1 className="h2 pb-4">Categories</h1>
@@ -22,7 +20,9 @@ const Categories = ({ searchParams, setSearchParams, jsonData }) => {
                 //alwaysOpen
                 >
                     <Accordion.Item eventKey="2">
-                        <Accordion.Header className="collapsed d-flex justify-content-between h3 text-decoration-none">Products</Accordion.Header>
+                        <Accordion.Header className="collapsed d-flex justify-content-between h3 text-decoration-none">
+                            Products
+                        </Accordion.Header>
                         <Accordion.Body className="list-unstyled pl-3">
                             <ul>
                                 <li>
@@ -36,7 +36,10 @@ const Categories = ({ searchParams, setSearchParams, jsonData }) => {
                                     jsonData[0].products.category.items.map((cat, index) => {
                                         return (
                                             <li key={index}>
-                                                <a onClick={() => handleClick(cat)} className="text-decoration-none text-capitalize cursor-pointer">
+                                                <a
+                                                    onClick={() => handleClick(cat)}
+                                                    className="text-decoration-none text-capitalize cursor-pointer"
+                                                >
                                                     {cat.name}
                                                 </a>
                                             </li>

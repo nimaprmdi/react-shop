@@ -3,8 +3,6 @@ import { Icon } from "@iconify/react";
 import Preloader from "./Preloader";
 
 const Services = ({ jsonData }) => {
-    useEffect(() => {}, [jsonData]);
-
     return (
         <section className="container py-5">
             {jsonData && jsonData.length > 0 ? (

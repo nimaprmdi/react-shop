@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
@@ -11,6 +11,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ProductSingle = ({ jsonData, cart, setCart }) => {
+    const [items, setItems] = useState();
+
     let { id } = useParams();
 
     const itemData = React.useMemo(() => {
@@ -21,6 +23,7 @@ const ProductSingle = ({ jsonData, cart, setCart }) => {
         const cartItems = jsonData && jsonData.length > 0 && [...jsonData[0].products.items];
         const indexOf = cartItems.indexOf(item);
         setCart([...cart, cartItems[indexOf]]);
+
         toast.success("Product Added", {
             position: "top-left",
             autoClose: 5000,
@@ -31,8 +34,6 @@ const ProductSingle = ({ jsonData, cart, setCart }) => {
             progress: undefined,
         });
     };
-
-    useEffect(() => {}, [jsonData, itemData]);
 
     return (
         <>
@@ -47,7 +48,11 @@ const ProductSingle = ({ jsonData, cart, setCart }) => {
                         </div>
 
                         <div className="col-lg-7 mt-5">
-                            <ProductSingleContent onHandleAddCart={() => handleAddCart(itemData)} itemData={itemData} />
+                            <ProductSingleContent
+                                onHandleAddCart={() => handleAddCart(itemData)}
+                                itemData={itemData}
+                                setItems={setItems}
+                            />
                         </div>
                     </div>
                 </div>

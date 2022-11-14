@@ -4,8 +4,6 @@ import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 
 const Footer = ({ jsonData }) => {
-    useEffect(() => {}, [jsonData]);
-
     return (
         <footer className="bg-dark" id="tempaltemo_footer">
             <div className="container">
@@ -13,7 +11,10 @@ const Footer = ({ jsonData }) => {
                     <>
                         <div className="row">
                             <div className="col-md-4 pt-5">
-                                <h2 className="h2 text-success border-bottom pb-3 border-light logo"> {jsonData[0].contact.title}</h2>
+                                <h2 className="h2 text-success border-bottom pb-3 border-light logo">
+                                    {" "}
+                                    {jsonData[0].contact.title}
+                                </h2>
                                 <ul className="list-unstyled text-light footer-link-list">
                                     <li>
                                         <i className="fas fa-map-marker-alt fa-fw mx-2 my-0">
@@ -33,7 +34,10 @@ const Footer = ({ jsonData }) => {
                                         <i className="fa fa-envelope fa-fw  mx-2 my-0">
                                             <Icon icon="ic:sharp-mail" />
                                         </i>
-                                        <a className="text-decoration-none" href={`mailto:${jsonData[0].contact.email}`}>
+                                        <a
+                                            className="text-decoration-none"
+                                            href={`mailto:${jsonData[0].contact.email}`}
+                                        >
                                             {jsonData[0].contact.email}
                                         </a>
                                     </li>
@@ -79,8 +83,15 @@ const Footer = ({ jsonData }) => {
                                 <ul className="list-inline text-left footer-icons">
                                     {jsonData[0].contact.socials.map((social) => {
                                         return (
-                                            <li key={social.name} className="list-inline-item border border-light rounded-circle text-center">
-                                                <a className="text-light text-decoration-none" target="_blank" href={social.address}>
+                                            <li
+                                                key={social.name}
+                                                className="list-inline-item border border-light rounded-circle text-center"
+                                            >
+                                                <a
+                                                    className="text-light text-decoration-none"
+                                                    target="_blank"
+                                                    href={social.address}
+                                                >
                                                     <Icon icon={social.icon} />
                                                 </a>
                                             </li>
@@ -93,7 +104,12 @@ const Footer = ({ jsonData }) => {
                                     Email address
                                 </label>
                                 <div className="input-group mb-2">
-                                    <input type="text" className="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address" />
+                                    <input
+                                        type="text"
+                                        className="form-control bg-dark border-light"
+                                        id="subscribeEmail"
+                                        placeholder="Email address"
+                                    />
                                     <div className="input-group-text btn-success text-light">Subscribe</div>
                                 </div>
                             </div>

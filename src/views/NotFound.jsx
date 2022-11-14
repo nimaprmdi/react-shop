@@ -4,8 +4,6 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 
 const NotFound = ({ jsonData, cart }) => {
-    useEffect(() => {}, [jsonData]);
-
     return (
         <>
             <Navbar jsonData={jsonData} />

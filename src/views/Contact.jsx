@@ -7,7 +7,6 @@ import OurMap from "../components/OurMap";
 import ContactUsBanner from "../components/ContactUsBanner";
 
 const Contact = ({ jsonData, cart, setCart }) => {
-    useEffect(() => {}, [jsonData]);
     return (
         <>
             <Navbar jsonData={jsonData} />

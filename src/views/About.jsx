@@ -7,8 +7,6 @@ import Services from "../components/Services";
 import Footer from "../components/Footer";
 
 const About = ({ jsonData, cart, setCart }) => {
-    useEffect(() => {}, [jsonData]);
-
     return (
         <div className="c-about">
             <Navbar jsonData={jsonData} />

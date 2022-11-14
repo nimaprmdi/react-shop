@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import Preloader from "./Preloader";
 
 const ContactUsBanner = ({ jsonData }) => {
-    useEffect(() => {}, [jsonData]);
-
     return (
         <div className="container-fluid bg-light py-5">
             <div className="col-md-6 m-auto text-center">

@@ -7,7 +7,6 @@ import Preloader from "./Preloader";
 import { Icon } from "@iconify/react";
 
 const Partners = ({ jsonData }) => {
-    useEffect(() => {}, [jsonData]);
     return (
         <section className="bg-light py-5">
             <div className="container my-4">
