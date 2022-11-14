@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
+import store from "./redux/store";
 import About from "./views/About";
 import Contact from "./views/Contact";
 import Home from "./views/Home";
 import ProductSingle from "./views/ProductSingle";
 import Shop from "./views/Shop";
 import NotFound from "./views/NotFound";
+import Checkout from "./views/Checkout";
 import { BrowserRouter, Routes, Route, Navigate, HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./redux/store";
+import { ToastContainer } from "react-toastify";
 
 function App() {
     const [jsonData, setJsonData] = useState();
-
-    const [cart, setCart] = useState([]);
 
     const getData = () => {
         fetch("https://api.jsonbin.io/v3/b/62b942a5449a1f38211d98f4/latest", {
@@ -30,9 +30,7 @@ function App() {
 
     useEffect(() => {
         getData();
-
-        console.log(cart);
-    }, [cart]);
+    }, []);
 
     return (
         <div className="App">
@@ -40,35 +38,35 @@ function App() {
                 <HashRouter>
                     <div className="root-app.js">
                         <Routes>
-                            <Route path="/" element={<Home jsonData={jsonData} cart={cart} setCart={setCart} />} />
-                            <Route path="about" element={<About jsonData={jsonData} cart={cart} setCart={setCart} />} />
-                            <Route
-                                path="contact"
-                                element={<Contact jsonData={jsonData} cart={cart} setCart={setCart} />}
-                            />
+                            <Route path="/" element={<Home jsonData={jsonData} />} />
+                            <Route path="about" element={<About jsonData={jsonData} />} />
+                            <Route path="contact" element={<Contact jsonData={jsonData} />} />
+
+                            <Route path="/checkout" element={<Checkout jsonData={jsonData} />} />
 
                             <Route path="shop">
-                                <Route index element={<Shop jsonData={jsonData} cart={cart} setCart={setCart} />} />
-                                <Route
-                                    path="product/:id"
-                                    element={<ProductSingle jsonData={jsonData} cart={cart} setCart={setCart} />}
-                                />
+                                <Route index element={<Shop jsonData={jsonData} />} />
+                                <Route path="product/:id" element={<ProductSingle jsonData={jsonData} />} />
                             </Route>
 
-                            <Route
-                                path="/404"
-                                element={<NotFound jsonData={jsonData} cart={cart} setCart={setCart} />}
-                            />
-                            <Route
-                                path="*"
-                                element={
-                                    <Navigate jsonData={jsonData} replace to="/404" cart={cart} setCart={setCart} />
-                                }
-                            />
+                            <Route path="/404" element={<NotFound jsonData={jsonData} />} />
+                            <Route path="*" element={<Navigate jsonData={jsonData} replace to="/404" />} />
                         </Routes>
                     </div>
                 </HashRouter>
             </Provider>
+
+            <ToastContainer
+                position="top-left"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     );
 }

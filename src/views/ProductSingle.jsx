@@ -61,18 +61,6 @@ const ProductSingle = ({ jsonData, cart, setCart }) => {
             <ProductSingleRelated />
 
             <Footer jsonData={jsonData} />
-
-            <ToastContainer
-                position="top-left"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
         </>
     );
 };

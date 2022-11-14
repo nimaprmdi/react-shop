@@ -1,15 +1,36 @@
-const addItem = (product) => {
+const addItem = (items = {}) => {
     return {
         type: "ADD_ITEM",
-        payload: product,
+        payload: items,
     };
 };
 
-const removeItem = (product) => {
+const decreaseItem = (items = {}) => {
+    return {
+        type: "DECREASE_ITEM",
+        payload: items,
+    };
+};
+
+const addItemSingle = (items = {}) => {
+    return {
+        type: "ADD_ITEM_SINGLE",
+        payload: items,
+    };
+};
+
+const addToWishList = (items = {}) => {
+    return {
+        type: "ADD_TO_WISH_LIST",
+        payload: items,
+    };
+};
+
+const removeItem = (items = {}) => {
     return {
         type: "REMOVE_ITEM",
-        payload: product,
+        payload: items,
     };
 };
 
-export { addItem, removeItem };
+export { addItem, decreaseItem, addItemSingle, addToWishList, removeItem };

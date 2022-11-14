@@ -16,9 +16,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { useSelector, useDispatch } from "react-redux";
 
 const Shop = ({ jsonData, cart, setCart }) => {
-    const dispatch = useDispatch();
-    const cartState = useSelector((state) => state.cartState);
-
     const [searchParams, setSearchParams] = useSearchParams();
     let cats = searchParams.get("category");
     let sorting = searchParams.get("sorting");
@@ -49,24 +46,6 @@ const Shop = ({ jsonData, cart, setCart }) => {
     const handlePageClick = (event) => {
         const newOffset = dataItems && dataItems.length > 0 && (event.selected * 3) % dataItems.length;
         setItemOffset(newOffset);
-    };
-
-    const handleAddCart = (item) => {
-        // const cartItems = jsonData && jsonData.length > 0 && [...jsonData[0].products.items]; // Clone Object
-        // const indexOf = cartItems.indexOf(item);
-        // setCart([...cart, cartItems[indexOf]]);
-        // toast.success("Product Added", {
-        //     position: "top-left",
-        //     autoClose: 5000,
-        //     hideProgressBar: false,
-        //     closeOnClick: true,
-        //     pauseOnHover: true,
-        //     draggable: false,
-        //     progress: undefined,
-        // });
-
-        console.log("item", item);
-        dispatch(addItem(item));
     };
 
     useEffect(() => {
@@ -104,13 +83,7 @@ const Shop = ({ jsonData, cart, setCart }) => {
                             <div className="c-shop__product-items d-flex flex-wrap justify-content-start">
                                 {currentItems && currentItems.length > 0 ? (
                                     currentItems.map((item, index) => {
-                                        return (
-                                            <Product
-                                                onHandleAddCart={() => handleAddCart(item)}
-                                                key={index}
-                                                item={item}
-                                            />
-                                        );
+                                        return <Product key={index} item={item} />;
                                     })
                                 ) : (currentItems && currentItems.length == 0) || currentItems === null ? (
                                     <section className="py-5 w-100">
@@ -162,18 +135,6 @@ const Shop = ({ jsonData, cart, setCart }) => {
                 </div>
             </div>
             <Footer jsonData={jsonData} />
-
-            <ToastContainer
-                position="top-left"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
         </>
     );
 };

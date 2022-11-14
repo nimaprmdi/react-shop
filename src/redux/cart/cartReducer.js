@@ -40,7 +40,17 @@ const cartReducer = (state = initalState, action) => {
             conditionReducer(state.selectedItems, action.payload, addItemCondition);
             toast.success(`${action.payload.name} Added to cart`);
             return { ...state, ...sumItems(state.selectedItems) };
+        case "DECREASE_ITEM":
+            const itemIndex = state.selectedItems.findIndex((item) => item.id === action.payload.id);
+            state.selectedItems[itemIndex].quantity--;
 
+            if (state.selectedItems[itemIndex].quantity === 0) {
+                state.selectedItems = state.selectedItems.filter((item) => item.id !== action.payload.id);
+            }
+
+            toast.error("Item Removed");
+
+            return { ...state, ...sumItems(state.selectedItems) };
         case "ADD_ITEM_SINGLE":
             const addSingleItemCondition = {
                 true: () => {
@@ -58,7 +68,6 @@ const cartReducer = (state = initalState, action) => {
             conditionReducer(state.selectedItems, action.payload, addSingleItemCondition);
             toast.success(`${action.payload.name} Added To Cart`);
             return { ...state, ...sumItems(state.selectedItems) };
-
         case "ADD_TO_WISH_LIST":
             const wishListCond = {
                 true: () => {
@@ -71,6 +80,9 @@ const cartReducer = (state = initalState, action) => {
             };
             conditionReducer(state.wishLists, action.payload, wishListCond);
             return { ...state };
+        case "REMOVE_ITEM":
+            state.selectedItems = state.selectedItems.filter((item) => item.id !== action.payload.id);
+            return { ...state, ...sumItems(state.selectedItems) };
 
         default:
             return state;

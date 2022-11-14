@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Preloader from "./Preloader";
 import { getStarRating } from "../helpers/handleFilter";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addItemSingle } from "../redux/cart/cartAction";
+import { addToWishList } from "../redux/cart/cartAction";
 
 const ProductSingleContent = ({ itemData, onHandleAddCart }) => {
     const [itemCount, setItemCount] = useState(1);
@@ -17,7 +19,7 @@ const ProductSingleContent = ({ itemData, onHandleAddCart }) => {
 
     const handleAddCart = (e) => {
         e.preventDefault();
-        dispatch({ type: "ADD_ITEM_SINGLE", payload: { ...itemData, quantity: itemCount } });
+        dispatch(addItemSingle({ ...itemData, quantity: itemCount }));
         setItemCount(0);
     };
 
@@ -131,7 +133,7 @@ const ProductSingleContent = ({ itemData, onHandleAddCart }) => {
                                 <div className="col d-grid">
                                     <button
                                         className="btn btn-primary btn-lg text-capitalize text-white"
-                                        onClick={() => dispatch({ type: "ADD_TO_WISH_LIST", payload: itemData })}
+                                        onClick={() => dispatch(addToWishList(itemData))}
                                     >
                                         Add to wish list
                                     </button>

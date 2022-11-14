@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addItem } from "../redux/cart/cartAction";
 
 const Product = ({ item: itemData, onHandleAddCart }) => {
-    useEffect(() => {}, [itemData]);
+    const dispatch = useDispatch();
 
     return (
         <>
@@ -27,7 +29,7 @@ const Product = ({ item: itemData, onHandleAddCart }) => {
                                     <span className="btn btn-success text-white mt-2">
                                         <i
                                             className="fas fa-cart-plus cursor-pointer"
-                                            onClick={() => onHandleAddCart()}
+                                            onClick={() => dispatch(addItem(itemData))}
                                         >
                                             <Icon icon="carbon:shopping-cart-plus" />
                                         </i>
