@@ -2,20 +2,23 @@ import React, { useEffect, useState } from "react";
 import Preloader from "../components/Preloader";
 import { Link } from "react-router-dom";
 import { filterDatasById, getStarRating } from "../helpers/handleFilter";
+import { useSelector } from "react-redux";
 
-const FeaturedProducts = ({ jsonData }) => {
+const FeaturedProducts = () => {
     const [filteredDatas, setFilteredDatas] = useState();
+    const [data, setData] = useState({});
+    const productState = useSelector((state) => state.productState);
 
     useEffect(() => {
-        jsonData &&
-            jsonData.length > 0 &&
-            setFilteredDatas(() => filterDatasById(jsonData[0].products.items, jsonData[0].products.featured));
-    }, [jsonData]);
+        setData(productState.products.record);
+
+        data && data[0] && setFilteredDatas(() => filterDatasById(data[0].products.items, data[0].products.featured));
+    }, [productState, data]);
 
     return (
         <section className="bg-light">
             <div className="container py-5">
-                {jsonData && jsonData.length > 0 ? (
+                {data && data.length > 0 ? (
                     <>
                         <div className="row text-center py-3">
                             <div className="col-lg-6 m-auto">

@@ -1,44 +1,48 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Preloader from "../components/Preloader";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const Footer = ({ jsonData }) => {
+const Footer = () => {
+    const [data, setData] = useState({});
+    const productState = useSelector((state) => state.productState);
+
+    useEffect(() => {
+        setData(productState.products.record);
+    }, [productState, data]);
+
     return (
         <footer className="bg-dark" id="tempaltemo_footer">
             <div className="container">
-                {jsonData && jsonData.length > 0 ? (
+                {data && data[0] ? (
                     <>
                         <div className="row">
                             <div className="col-md-4 pt-5">
                                 <h2 className="h2 text-success border-bottom pb-3 border-light logo">
-                                    {" "}
-                                    {jsonData[0].contact.title}
+                                    {data[0].contact.title}
                                 </h2>
                                 <ul className="list-unstyled text-light footer-link-list">
                                     <li>
                                         <i className="fas fa-map-marker-alt fa-fw mx-2 my-0">
                                             <Icon icon="fontisto:map-marker-alt" />
                                         </i>
-                                        {jsonData[0].contact.address}
+                                        {data[0].contact.address}
                                     </li>
                                     <li>
                                         <i className="fa fa-phone fa-fw  mx-2 my-0">
                                             <Icon icon="carbon:phone-filled" />
                                         </i>
-                                        <a className="text-decoration-none" href={`tel:${jsonData[0].contact.phone}`}>
-                                            {jsonData[0].contact.phone}
+                                        <a className="text-decoration-none" href={`tel:${data[0].contact.phone}`}>
+                                            {data[0].contact.phone}
                                         </a>
                                     </li>
                                     <li>
                                         <i className="fa fa-envelope fa-fw  mx-2 my-0">
                                             <Icon icon="ic:sharp-mail" />
                                         </i>
-                                        <a
-                                            className="text-decoration-none"
-                                            href={`mailto:${jsonData[0].contact.email}`}
-                                        >
-                                            {jsonData[0].contact.email}
+                                        <a className="text-decoration-none" href={`mailto:${data[0].contact.email}`}>
+                                            {data[0].contact.email}
                                         </a>
                                     </li>
                                 </ul>
@@ -47,7 +51,7 @@ const Footer = ({ jsonData }) => {
                             <div className="col-md-4 pt-5">
                                 <h2 className="h2 text-light border-bottom pb-3 border-light">Products</h2>
                                 <ul className="list-unstyled text-light footer-link-list">
-                                    {jsonData[0].products.category.items.map((cat) => {
+                                    {data[0].products.category.items.map((cat) => {
                                         return (
                                             <li key={cat.id}>
                                                 <Link className="text-decoration-none text-capitalize" to={cat.name}>
@@ -62,7 +66,7 @@ const Footer = ({ jsonData }) => {
                             <div className="col-md-4 pt-5">
                                 <h2 className="h2 text-light border-bottom pb-3 border-light">Navigation</h2>
                                 <ul className="list-unstyled text-light footer-link-list">
-                                    {jsonData[0].navigation.map((nav, index) => {
+                                    {data[0].navigation.map((nav, index) => {
                                         return (
                                             <li key={index}>
                                                 <Link to={nav.address} className="text-decoration-none">
@@ -81,7 +85,7 @@ const Footer = ({ jsonData }) => {
                             </div>
                             <div className="col-auto me-auto">
                                 <ul className="list-inline text-left footer-icons">
-                                    {jsonData[0].contact.socials.map((social) => {
+                                    {data[0].contact.socials.map((social) => {
                                         return (
                                             <li
                                                 key={social.name}

@@ -1,26 +1,27 @@
-import React from "react";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
+import React, { useEffect, useState } from "react";
 import ProductSingleContent from "../components/ProductSingleContent";
 import ProductSingleHead from "../components/ProductSingleHead";
 import ProductSingleRelated from "../components/ProductSingleRelated";
 import { useParams } from "react-router-dom";
 import { findDataById } from "../helpers/handleFilter";
+import { useSelector } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 
-const ProductSingle = ({ jsonData }) => {
+const ProductSingle = () => {
+    const [data, setData] = useState({});
+    const productState = useSelector((state) => state.productState);
     let { id } = useParams();
 
     const itemData = React.useMemo(() => {
-        return jsonData && jsonData.length > 0 && findDataById(jsonData[0].products.items, parseInt(id));
-    }, [jsonData, id]);
+        return data && data[0] && findDataById(data[0].products.items, parseInt(id));
+    }, [data, id]);
+
+    useEffect(() => {
+        setData(productState.products.record);
+    }, [productState, data]);
 
     return (
         <>
-            <Navbar jsonData={jsonData} />
-            <Header jsonData={jsonData} />
-
             <section className="bg-light">
                 <div className="container pb-5">
                     <div className="row">
@@ -36,8 +37,6 @@ const ProductSingle = ({ jsonData }) => {
             </section>
 
             <ProductSingleRelated />
-
-            <Footer jsonData={jsonData} />
         </>
     );
 };

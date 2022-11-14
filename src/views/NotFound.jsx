@@ -1,13 +1,8 @@
 import React, { useEffect } from "react";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
 
-const NotFound = ({ jsonData, cart }) => {
+const NotFound = () => {
     return (
         <>
-            <Navbar jsonData={jsonData} />
-            <Header jsonData={jsonData} cart={cart} />
             <section className="bg-success py-5">
                 <div className="container">
                     <div className="row align-items-center py-5 text-center">
@@ -18,7 +13,6 @@ const NotFound = ({ jsonData, cart }) => {
                     </div>
                 </div>
             </section>
-            <Footer jsonData={jsonData} />
         </>
     );
 };

@@ -9,9 +9,12 @@ import ProductsSorting from "../components/ProductsSorting";
 import ReactPaginate from "react-paginate";
 import { useSearchParams } from "react-router-dom";
 import { filterDatasByCats, handleSorting } from "../helpers/handleFilter";
+import { useSelector } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 
-const Shop = ({ jsonData, cart, setCart }) => {
+const Shop = () => {
+    const [data, setData] = useState({});
+    const productState = useSelector((state) => state.productState);
     const [searchParams, setSearchParams] = useSearchParams();
     let cats = searchParams.get("category");
     let sorting = searchParams.get("sorting");
@@ -24,20 +27,20 @@ const Shop = ({ jsonData, cart, setCart }) => {
     const dataItems = React.useMemo(() => {
         if (!cats) {
             if (sorting) {
-                return jsonData && jsonData.length > 0 && handleSorting(sorting, jsonData[0].products.items);
+                return data && data[0] && handleSorting(sorting, data[0].products.items);
             } else {
-                return jsonData && jsonData.length > 0 && jsonData[0].products.items;
+                return data && data[0] && data[0].products.items;
             }
         } else {
-            let filteredCats = jsonData && jsonData.length > 0 && filterDatasByCats(jsonData[0].products.items, cats);
+            let filteredCats = data && data[0] && filterDatasByCats(data[0].products.items, cats);
 
             if (sorting) {
-                return jsonData && jsonData.length > 0 && handleSorting(sorting, filteredCats);
+                return data && data[0] && handleSorting(sorting, filteredCats);
             } else {
-                return jsonData && jsonData.length > 0 && filteredCats;
+                return data && data[0] && filteredCats;
             }
         }
-    }, [cats, sorting, jsonData]);
+    }, [cats, sorting, data]);
 
     const handlePageClick = (event) => {
         const newOffset = dataItems && dataItems.length > 0 && (event.selected * 3) % dataItems.length;
@@ -45,22 +48,21 @@ const Shop = ({ jsonData, cart, setCart }) => {
     };
 
     useEffect(() => {
+        setData(productState.products.record);
+
         const endOffset = itemOffset + 3;
         dataItems && dataItems.length > 0
             ? setCurrentItems(dataItems.slice(itemOffset, endOffset))
             : setCurrentItems(null);
         dataItems && dataItems.length > 0 && setPageCount(Math.ceil(dataItems.length / 3));
-    }, [jsonData, sorting, cats, dataItems, itemOffset, pageCount]);
+    }, [productState, data, sorting, cats, dataItems, itemOffset, pageCount]);
 
     return (
         <>
-            <Navbar jsonData={jsonData} />
-            <Header cart={cart} setCart={setCart} jsonData={jsonData} />
-
             <div className="container py-5">
                 <div className="row">
                     <div className="col-lg-3">
-                        <Categories searchParams={searchParams} setSearchParams={setSearchParams} jsonData={jsonData} />
+                        <Categories searchParams={searchParams} setSearchParams={setSearchParams} data={data} />
                     </div>
 
                     <div className="col-lg-9">
@@ -130,7 +132,6 @@ const Shop = ({ jsonData, cart, setCart }) => {
                     </div>
                 </div>
             </div>
-            <Footer jsonData={jsonData} />
         </>
     );
 };

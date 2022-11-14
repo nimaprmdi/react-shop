@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchModal from "./SearchModal";
 import BasketModal from "./BasketModal";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
-import { deleteData } from "../helpers/handleFilter";
 import { useSelector } from "react-redux";
 
-const Header = ({ jsonData }) => {
+const Header = () => {
+    const [data, setData] = useState({});
     const [open, setOpen] = useState(false);
     const cartSatate = useSelector((state) => state.cartState);
+    const productState = useSelector((state) => state.productState);
 
     // Basket
     const [show, setShow] = useState(false);
@@ -16,6 +17,10 @@ const Header = ({ jsonData }) => {
     const handleShow = () => setShow(true);
 
     const handleRemoveItems = (e) => {};
+
+    useEffect(() => {
+        setData(productState.products.record);
+    }, [productState, data]);
 
     return (
         <>
@@ -43,9 +48,9 @@ const Header = ({ jsonData }) => {
                     >
                         <div className="flex-fill">
                             <ul className="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                                {jsonData &&
-                                    jsonData.length > 0 &&
-                                    jsonData[0].navigation.map((nav, index) => {
+                                {data &&
+                                    data[0] &&
+                                    data[0].navigation.map((nav, index) => {
                                         return (
                                             <li className="nav-item" key={index}>
                                                 <Link to={nav.address} className="nav-link">

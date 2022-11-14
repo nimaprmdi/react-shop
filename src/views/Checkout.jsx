@@ -1,20 +1,20 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import React, { useEffect, useState } from "react";
 import Modal from "../components/common/Modal";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem, decreaseItem } from "../redux/cart/cartAction";
 
-const Checkout = ({ jsonData }) => {
-    const cartState = useSelector((state) => state.cartState);
+const Checkout = () => {
+    const [data, setData] = useState({});
     const dispatch = useDispatch();
+    const cartState = useSelector((state) => state.cartState);
+    const productState = useSelector((state) => state.productState);
+
+    useEffect(() => {
+        setData(productState.products.record);
+    }, [productState, data]);
 
     return (
         <>
-            <Navbar jsonData={jsonData} />
-            <Header jsonData={jsonData} />
-
             <section className="container">
                 <div className="row">
                     <div className="col bg-success">
@@ -67,8 +67,6 @@ const Checkout = ({ jsonData }) => {
                     </div>
                 </div>
             </section>
-
-            <Footer jsonData={jsonData} />
         </>
     );
 };

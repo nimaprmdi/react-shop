@@ -1,8 +1,15 @@
-import React, { useEffect } from "react";
 import { Icon } from "@iconify/react";
 import Preloader from "./Preloader";
+import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
 
-const Hero = ({ jsonData }) => {
+const Hero = () => {
+    const [data, setData] = useState({});
+    const productState = useSelector((state) => state.productState);
+
+    useEffect(() => {
+        setData(productState.products.record);
+    }, [productState, data]);
     return (
         <div id="template-mo-zay-hero-carousel" className="carousel slide" data-bs-ride="carousel">
             <ol className="carousel-indicators">
@@ -11,8 +18,8 @@ const Hero = ({ jsonData }) => {
                 <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
             </ol>
             <div className="carousel-inner">
-                {jsonData && jsonData.length > 0 ? (
-                    jsonData[0].slider.map((slider, index) => {
+                {data && data[0] ? (
+                    data[0].slider.map((slider, index) => {
                         return (
                             <div className={`carousel-item ${index === 0 && "active"}`} key={index}>
                                 <div className="container">
