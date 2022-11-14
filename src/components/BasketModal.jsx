@@ -4,7 +4,8 @@ import { Icon } from "@iconify/react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addItem, decreaseItem, removeItem } from "../redux/cart/cartAction";
-const BasketModal = ({ cart, onHandleClose, show }) => {
+
+const BasketModal = ({ onHandleClose, show }) => {
     const cartState = useSelector((state) => state.cartState);
     const dispatch = useDispatch();
 

@@ -9,11 +9,7 @@ import ProductsSorting from "../components/ProductsSorting";
 import ReactPaginate from "react-paginate";
 import { useSearchParams } from "react-router-dom";
 import { filterDatasByCats, handleSorting } from "../helpers/handleFilter";
-import { ToastContainer, toast } from "react-toastify";
-import { addItem } from "../redux/cart/cartAction";
 import "react-toastify/dist/ReactToastify.css";
-
-import { useSelector, useDispatch } from "react-redux";
 
 const Shop = ({ jsonData, cart, setCart }) => {
     const [searchParams, setSearchParams] = useSearchParams();

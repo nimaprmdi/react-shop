@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { deleteData } from "../helpers/handleFilter";
 import { useSelector } from "react-redux";
 
-const Header = ({ jsonData, cart, setCart }) => {
+const Header = ({ jsonData }) => {
     const [open, setOpen] = useState(false);
     const cartSatate = useSelector((state) => state.cartState);
 
@@ -15,9 +15,7 @@ const Header = ({ jsonData, cart, setCart }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleRemoveItems = (e) => {
-        setCart(deleteData(cart, e));
-    };
+    const handleRemoveItems = (e) => {};
 
     return (
         <>
@@ -106,7 +104,6 @@ const Header = ({ jsonData, cart, setCart }) => {
                 onHandleRemoveItems={(e) => handleRemoveItems(e)}
                 onHandleClose={() => handleClose()}
                 show={show}
-                cart={cart}
             />
 
             <SearchModal open={open} setOpen={setOpen} />

@@ -2,22 +2,18 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { ToastContainer } from "react-toastify";
-import shoes from "../assets/images/shoes.png";
-import { useSelector, useDispatch } from "react-redux";
 import Modal from "../components/common/Modal";
+import { useSelector, useDispatch } from "react-redux";
 import { addItem, decreaseItem } from "../redux/cart/cartAction";
 
-const Checkout = ({ jsonData, cart, setCart }) => {
+const Checkout = ({ jsonData }) => {
     const cartState = useSelector((state) => state.cartState);
     const dispatch = useDispatch();
-
-    console.log(cartState);
 
     return (
         <>
             <Navbar jsonData={jsonData} />
-            <Header cart={cart} setCart={setCart} jsonData={jsonData} />
+            <Header jsonData={jsonData} />
 
             <section className="container">
                 <div className="row">

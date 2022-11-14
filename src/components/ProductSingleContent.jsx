@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { addItemSingle } from "../redux/cart/cartAction";
 import { addToWishList } from "../redux/cart/cartAction";
 
-const ProductSingleContent = ({ itemData, onHandleAddCart }) => {
+const ProductSingleContent = ({ itemData }) => {
     const [itemCount, setItemCount] = useState(1);
     const dispatch = useDispatch();
 
