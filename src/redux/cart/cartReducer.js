@@ -80,6 +80,12 @@ const cartReducer = (state = initalState, action) => {
             };
             conditionReducer(state.wishLists, action.payload, wishListCond);
             return { ...state };
+
+        case "CLEAR_ALL":
+            state.selectedItems = [];
+            state.priceTotal = 0;
+            state.itemCounter = 0;
+            return { ...state };
         case "REMOVE_ITEM":
             state.selectedItems = state.selectedItems.filter((item) => item.id !== action.payload.id);
             return { ...state, ...sumItems(state.selectedItems) };

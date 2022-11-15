@@ -62,7 +62,7 @@ const Shop = () => {
             <div className="container py-5">
                 <div className="row">
                     <div className="col-lg-3">
-                        <Categories searchParams={searchParams} setSearchParams={setSearchParams} data={data} />
+                        <Categories searchParams={searchParams} setSearchParams={setSearchParams} />
                     </div>
 
                     <div className="col-lg-9">

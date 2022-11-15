@@ -1,15 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { Accordion } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const Categories = ({ searchParams, setSearchParams, jsonData }) => {
+const Categories = ({ searchParams, setSearchParams }) => {
+    const [data, setData] = useState();
+    const productState = useSelector((state) => state.productState);
+
     const handleClick = (cat) => {
         setSearchParams({ ...searchParams, category: cat.name });
         let updatedSearchParams = new URLSearchParams(searchParams.toString());
         updatedSearchParams.set("category", cat.name);
         setSearchParams(updatedSearchParams.toString());
     };
+
+    useEffect(() => {
+        setData(productState.products.record);
+    }, [data, productState]);
 
     return (
         <div className="c-categories">
@@ -31,9 +39,9 @@ const Categories = ({ searchParams, setSearchParams, jsonData }) => {
                                     </Link>
                                 </li>
 
-                                {jsonData &&
-                                    jsonData.length > 0 &&
-                                    jsonData[0].products.category.items.map((cat, index) => {
+                                {data &&
+                                    data[0] &&
+                                    data[0].products.category.items.map((cat, index) => {
                                         return (
                                             <li key={index}>
                                                 <a

@@ -33,4 +33,10 @@ const removeItem = (items = {}) => {
     };
 };
 
-export { addItem, decreaseItem, addItemSingle, addToWishList, removeItem };
+const clearAll = () => {
+    return {
+        type: "CLEAR_ALL",
+    };
+};
+
+export { addItem, decreaseItem, addItemSingle, addToWishList, removeItem, clearAll };

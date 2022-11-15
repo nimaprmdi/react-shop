@@ -23,7 +23,7 @@
         "products": {
             "items": [
                 {
-                    "id": "price_1M4IJoAU2FGxqbUAQG4ZZuOMS",
+                    "id": "price_1M4IJoAU2FGxqbUAQG4ZZuOM",
                     "featuredImage": "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
                     "sliderImages": [
                         "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
@@ -33,7 +33,7 @@
                         "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg"
                     ],
                     "name": "A bag",
-                    "price": 50,
+                    "price": 50.0,
                     "category": ["bag"],
                     "tags": ["nike", "addidas", "dodge"],
                     "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
@@ -43,7 +43,7 @@
                     "colors": ["red", "green"]
                 },
                 {
-                    "id": 2,
+                    "id": "price_1M4KBLAU2FGxqbUAS6Tf3pWl",
                     "featuredImage": "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
                     "sliderImages": [
                         "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
@@ -53,7 +53,7 @@
                         "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg"
                     ],
                     "name": "B bag",
-                    "price": 50,
+                    "price": 50.0,
                     "category": ["bag"],
                     "tags": ["hermes", "bijan", "bugatti"],
                     "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
@@ -63,7 +63,7 @@
                     "colors": ["red", "green"]
                 },
                 {
-                    "id": "price_1M4ILqAU2FGxqbUAchRVS0dy",
+                    "id": "price_1M4IL3AU2FGxqbUAVPJjP2DS",
                     "featuredImage": "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
                     "sliderImages": [
                         "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
@@ -73,7 +73,7 @@
                         "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg"
                     ],
                     "name": "A watch",
-                    "price": 30,
+                    "price": 30.0,
                     "category": ["watch"],
                     "tags": ["hermes", "bijan", "bugatti"],
                     "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
@@ -83,7 +83,7 @@
                     "colors": ["red", "blue"]
                 },
                 {
-                    "id": 4,
+                    "id": "price_1M4KC5AU2FGxqbUAtv6rw9lE",
                     "featuredImage": "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
                     "sliderImages": [
                         "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
@@ -93,7 +93,7 @@
                         "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg"
                     ],
                     "name": "B watch",
-                    "price": 30,
+                    "price": 30.0,
                     "category": ["watch"],
                     "tags": ["hermes", "bijan", "bugatti"],
                     "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
@@ -113,7 +113,7 @@
                         "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg"
                     ],
                     "name": "A Shoes",
-                    "price": 30,
+                    "price": 30.0,
                     "category": ["shoes"],
                     "tags": ["hermes", "bijan", "bugatti"],
                     "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",
@@ -123,7 +123,7 @@
                     "colors": ["red", "blue"]
                 },
                 {
-                    "id": 6,
+                    "id": "price_1M4KCmAU2FGxqbUALK8A0QCo",
                     "featuredImage": "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
                     "sliderImages": [
                         "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg",
@@ -133,7 +133,7 @@
                         "https://cremebar-muenchen.de/wp-content/uploads/2020/11/mkas70_01-500x500.jpg"
                     ],
                     "name": "B Shoes",
-                    "price": 30,
+                    "price": 30.0,
                     "category": ["shoes"],
                     "tags": ["hermes", "bijan", "bugatti"],
                     "description": "Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.",

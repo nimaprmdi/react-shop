@@ -14,6 +14,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import RefreshApi from "./views/RefreshApi";
 import { fetchProducts } from "./redux/product/productAction";
+import Success from "./views/Success";
 
 function App() {
     const productState = useSelector((state) => state.productState);
@@ -38,8 +39,9 @@ function App() {
                             <Route index element={<Shop />} />
                             <Route path="product/:id" element={<ProductSingle />} />
                         </Route>
-                        <Route path="/404" element={<NotFound />} />
+                        <Route path="/success" element={<Success />} />
                         <Route path="/refresh" element={<RefreshApi />} />
+                        <Route path="/404" element={<NotFound />} />
                         <Route path="*" element={<Navigate replace to="/404" />} />
                     </Routes>
                     <Footer />
