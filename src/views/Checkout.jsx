@@ -9,9 +9,34 @@ const Checkout = () => {
     const cartState = useSelector((state) => state.cartState);
     const productState = useSelector((state) => state.productState);
 
+    const x = [
+        { id: "price_1M4IJoAU2FGxqbUAQG4ZZuOM", quantity: 3, price: 50.0 },
+        { id: "price_1M4IL3AU2FGxqbUAVPJjP2DS", quantity: 1, price: 30.0 },
+    ];
+
     useEffect(() => {
         setData(productState.products.record);
     }, [productState, data]);
+
+    const checkout = async () => {
+        await fetch("http://localhost:4000/checkout", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                items: x,
+            }),
+        })
+            .then((response) => {
+                return response.json();
+            })
+            .then((response) => {
+                if (response.url) {
+                    window.location.assign(response.url);
+                }
+            });
+    };
 
     return (
         <>
@@ -21,10 +46,12 @@ const Checkout = () => {
                         {cartState.selectedItems.length ? (
                             <>
                                 <button className="btn btn-warning mt-5">Clear All Items</button>
-                                <button className="btn btn-primary mx-3 mt-5">Finall Payment (Stripe)</button>
-                                {cartState.selectedItems.map((item) => (
+                                <button onClick={checkout} className="btn btn-primary mx-3 mt-5">
+                                    Checkout
+                                </button>
+                                {cartState.selectedItems.map((item, index) => (
                                     <div key={item.id} className="card my-5">
-                                        <div className="card-header">Header</div>
+                                        <div className="card-header">Item {++index}</div>
 
                                         <div
                                             className="card-body "

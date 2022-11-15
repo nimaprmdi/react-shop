@@ -33,17 +33,13 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="about" element={<About />} />
                         <Route path="contact" element={<Contact />} />
-
                         <Route path="/checkout" element={<Checkout />} />
-
                         <Route path="shop">
                             <Route index element={<Shop />} />
                             <Route path="product/:id" element={<ProductSingle />} />
                         </Route>
-
                         <Route path="/404" element={<NotFound />} />
                         <Route path="/refresh" element={<RefreshApi />} />
-
                         <Route path="*" element={<Navigate replace to="/404" />} />
                     </Routes>
                     <Footer />

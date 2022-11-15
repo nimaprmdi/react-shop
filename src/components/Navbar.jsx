@@ -8,8 +8,6 @@ const Navbar = () => {
     const productState = useSelector((state) => state.productState);
     const { pathname } = useLocation();
 
-    console.log(pathname);
-
     useEffect(() => {
         setData(productState.products.record);
     }, [productState, data]);
