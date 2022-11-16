@@ -11,11 +11,13 @@ import { useSearchParams } from "react-router-dom";
 import { filterDatasByCats, handleSorting } from "../helpers/handleFilter";
 import { useSelector } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
+import PriceSlider from "../components/common/PriceSlider";
 
 const Shop = () => {
     const [data, setData] = useState({});
     const productState = useSelector((state) => state.productState);
     const [searchParams, setSearchParams] = useSearchParams();
+    let price = searchParams.get("price");
     let cats = searchParams.get("category");
     let sorting = searchParams.get("sorting");
 
@@ -63,6 +65,8 @@ const Shop = () => {
                 <div className="row">
                     <div className="col-lg-3">
                         <Categories searchParams={searchParams} setSearchParams={setSearchParams} />
+
+                        <PriceSlider />
                     </div>
 
                     <div className="col-lg-9">

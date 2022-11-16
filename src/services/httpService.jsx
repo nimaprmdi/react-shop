@@ -1,4 +1,4 @@
-import axsio, { AxiosResponse } from "axios";
+import axsio from "axios";
 import { toast } from "react-toastify";
 
 const axiosApiInstance = axsio.create({

@@ -13,7 +13,7 @@ const ProductSingle = () => {
     let { id } = useParams();
 
     const itemData = React.useMemo(() => {
-        return data && data[0] && findDataById(data[0].products.items, parseInt(id));
+        return data && data[0] && findDataById(data[0].products.items, id);
     }, [data, id]);
 
     useEffect(() => {

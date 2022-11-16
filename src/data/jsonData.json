@@ -164,7 +164,11 @@
                     }
                 ]
             },
-            "featured": [1, 2, 3]
+            "featured": [
+                "price_1M4IJoAU2FGxqbUAQG4ZZuOM",
+                "price_1M4ILqAU2FGxqbUAchRVS0dy",
+                "price_1M4KBLAU2FGxqbUAS6Tf3pWl"
+            ]
         },
         "about": {
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",

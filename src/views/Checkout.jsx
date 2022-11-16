@@ -2,38 +2,33 @@ import React, { useEffect, useState } from "react";
 import Modal from "../components/common/Modal";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem, decreaseItem, clearAll } from "../redux/cart/cartAction";
+import axios from "axios";
 
 const Checkout = () => {
     const [data, setData] = useState({});
+    const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
     const cartState = useSelector((state) => state.cartState);
     const productState = useSelector((state) => state.productState);
-
-    const x = [
-        { id: "price_1M4IJoAU2FGxqbUAQG4ZZuOM", quantity: 3, price: 50.0 },
-        { id: "price_1M4IL3AU2FGxqbUAVPJjP2DS", quantity: 1, price: 30.0 },
-    ];
 
     useEffect(() => {
         setData(productState.products.record);
     }, [productState, data]);
 
     const checkout = async () => {
-        await fetch("http://localhost:4000/checkout", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                items: cartState.selectedItems,
-            }),
-        })
+        await axios
+            .post(
+                "https://floating-depths-69711.herokuapp.com/checkout",
+                { items: cartState.selectedItems },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            )
             .then((response) => {
-                return response.json();
-            })
-            .then((response) => {
-                if (response.url) {
-                    window.location.assign(response.url);
+                if (response.data.url) {
+                    window.location.assign(response.data.url);
                 }
             });
     };
@@ -49,10 +44,13 @@ const Checkout = () => {
                                     <button className="btn btn-warning mt-5" onClick={() => dispatch(clearAll())}>
                                         Clear All Items
                                     </button>
+
                                     <span className="btn btn-info mt-5 mx-3">
                                         {cartState.itemCounter} Total Products
                                     </span>
+
                                     <span className="btn btn-info mt-5">${cartState.priceTotal} Total Price</span>
+
                                     <button onClick={checkout} className="btn btn-primary mt-5 mx-3">
                                         Checkout
                                     </button>
