@@ -6,6 +6,11 @@ const filterDatasById = (datas, ids) => {
     return datas && datas.length > 0 && datas.filter((data) => ids.includes(data.id));
 };
 
+const filterDatasByPrice = (datas, minPrice, maxPrice) => {
+    console.log("datas", datas);
+    return datas && datas.length > 0 && datas.filter((data) => data.price >= minPrice && data.price <= maxPrice);
+};
+
 const findDataById = (datas, id) => {
     return datas.find((data) => data.id === id);
 };
@@ -28,6 +33,11 @@ const shuffleData = (datas) => {
 
 const getStarRating = (stars) => {
     return "✮✮✮✮✮✩✩✩✩✩".slice(5 - stars, 10 - stars);
+};
+
+const getFinalPrice = (datas, highest = true) => {
+    const amounts = datas.map((a) => a.price);
+    return highest ? Math.max(...amounts) : Math.min(...amounts);
 };
 
 const deleteData = (datas, removedData) => {
@@ -72,12 +82,14 @@ const getAllTags = (datas) => {
 export {
     filterDatasByCats,
     filterDatasById,
+    filterDatasByPrice,
     findDataById,
     getFeaturedProducts,
     sortDataAtoZ,
     sortDataZtoA,
     shuffleData,
     getStarRating,
+    getFinalPrice,
     deleteData,
     handleSorting,
     getAllTags,
