@@ -4,7 +4,7 @@ import Product from "../components/Product";
 import Preloader from "../components/Preloader";
 import ProductsSorting from "../components/ProductsSorting";
 import ReactPaginate from "react-paginate";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useLocation } from "react-router-dom";
 import { filterDatasByCats, handleSorting } from "../helpers/handleFilter";
 import { useSelector } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,6 +16,7 @@ const Shop = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     let cats = searchParams.get("category");
     let sorting = searchParams.get("sorting");
+    const location = useLocation();
 
     /// The Price Filter
     const [minPrice, setMinPrice] = useState(0);
@@ -23,6 +24,7 @@ const Shop = () => {
     const [highestPrice, setHighestPrice] = useState(0);
     const [lowestPrice, setLowestPrice] = useState(0);
     const [filteredPriceData, setFilteredPriceData] = useState([]);
+    const [hasPriceFilter, setHasPriceFilter] = useState(false);
 
     // Pagination
     const [currentItems, setCurrentItems] = useState(null);
@@ -33,9 +35,11 @@ const Shop = () => {
         if (!cats) {
             if (data && data[0]) {
                 if (sorting) {
-                    return handleSorting(sorting, filteredPriceData);
+                    return hasPriceFilter
+                        ? handleSorting(sorting, filteredPriceData)
+                        : handleSorting(sorting, data[0].products.items);
                 } else {
-                    return filteredPriceData;
+                    return hasPriceFilter ? filteredPriceData : data[0].products.items;
                 }
             }
         } else {
@@ -43,7 +47,9 @@ const Shop = () => {
 
             if (data && data[0]) {
                 filteredCats = filteredPriceData
-                    ? filterDatasByCats(filteredPriceData, cats)
+                    ? hasPriceFilter
+                        ? filterDatasByCats(filteredPriceData, cats)
+                        : filterDatasByCats(data[0].products.items, cats)
                     : filterDatasByCats(data[0].products.items, cats);
 
                 if (sorting) {
@@ -59,6 +65,10 @@ const Shop = () => {
         const newOffset = dataItems && dataItems.length > 0 && (event.selected * 3) % dataItems.length;
         setItemOffset(newOffset);
     };
+
+    useEffect(() => {
+        setHasPriceFilter(false);
+    }, [location]);
 
     useEffect(() => {
         setData(productState.products.record);
@@ -86,8 +96,8 @@ const Shop = () => {
                             setHighestPrice={setHighestPrice}
                             lowestPrice={lowestPrice}
                             setLowestPrice={setLowestPrice}
-                            filteredPriceData={filteredPriceData}
                             setFilteredPriceData={setFilteredPriceData}
+                            setHasPriceFilter={setHasPriceFilter}
                         />
                     </div>
 

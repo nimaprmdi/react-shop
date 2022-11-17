@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { filterDatasByPrice, getFinalPrice } from "../../helpers/handleFilter";
-
+import { useLocation } from "react-router-dom";
 const PriceSlider = ({
     minPrice,
     setMinPrice,
@@ -11,10 +11,15 @@ const PriceSlider = ({
     setHighestPrice,
     lowestPrice,
     setLowestPrice,
-    filteredPriceData,
     setFilteredPriceData,
+    setHasPriceFilter,
 }) => {
+    const location = useLocation();
     const productState = useSelector((state) => state.productState);
+
+    useEffect(() => {
+        setHasPriceFilter(false);
+    }, [location]);
 
     useEffect(() => {
         productState &&
@@ -51,12 +56,14 @@ const PriceSlider = ({
                 document.querySelector(".min-price").onmousedown = dragMouseDown;
                 dragItem = null;
                 dragItem = document.querySelector(".min-price");
+                setHasPriceFilter(true);
             });
 
             document.querySelector(".max-price").addEventListener("mousedown", () => {
                 document.querySelector(".max-price").onmousedown = dragMouseDown;
                 dragItem = null;
                 dragItem = document.querySelector(".max-price");
+                setHasPriceFilter(true);
             });
 
             function dragMouseDown(e) {
