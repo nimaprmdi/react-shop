@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { filterDatasByPrice, getFinalPrice } from "../../helpers/handleFilter";
-import { compose, pipe } from "lodash/fp";
 
-const PriceSlider = () => {
-    const [minPrice, setMinPrice] = useState(0);
-    const [maxPrice, setMaxPrice] = useState(0);
-
-    const [highestPrice, setHighestPrice] = useState(0);
-    const [lowestPrice, setLowestPrice] = useState(0);
-
-    const [filteredData, setFilteredData] = useState([]);
-
+const PriceSlider = ({
+    minPrice,
+    setMinPrice,
+    maxPrice,
+    setMaxPrice,
+    highestPrice,
+    setHighestPrice,
+    lowestPrice,
+    setLowestPrice,
+    filteredPriceData,
+    setFilteredPriceData,
+}) => {
     const productState = useSelector((state) => state.productState);
 
     useEffect(() => {
@@ -28,11 +30,9 @@ const PriceSlider = () => {
 
         // Filter Data by price
         Object.keys(productState.products).length > 0 &&
-            setFilteredData(
+            setFilteredPriceData(
                 filterDatasByPrice(productState.products.record[0].products.items, lowestPrice, highestPrice)
             );
-
-        console.log(filteredData);
     }, [productState, maxPrice, minPrice]);
 
     useEffect(() => {

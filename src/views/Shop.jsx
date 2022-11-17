@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Categories from "../components/Categories";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
 import Product from "../components/Product";
 import Preloader from "../components/Preloader";
 import ProductsSorting from "../components/ProductsSorting";
@@ -17,9 +14,15 @@ const Shop = () => {
     const [data, setData] = useState({});
     const productState = useSelector((state) => state.productState);
     const [searchParams, setSearchParams] = useSearchParams();
-    let price = searchParams.get("price");
     let cats = searchParams.get("category");
     let sorting = searchParams.get("sorting");
+
+    /// The Price Filter
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(0);
+    const [highestPrice, setHighestPrice] = useState(0);
+    const [lowestPrice, setLowestPrice] = useState(0);
+    const [filteredPriceData, setFilteredPriceData] = useState([]);
 
     // Pagination
     const [currentItems, setCurrentItems] = useState(null);
@@ -28,21 +31,29 @@ const Shop = () => {
 
     const dataItems = React.useMemo(() => {
         if (!cats) {
-            if (sorting) {
-                return data && data[0] && handleSorting(sorting, data[0].products.items);
-            } else {
-                return data && data[0] && data[0].products.items;
+            if (data && data[0]) {
+                if (sorting) {
+                    return handleSorting(sorting, filteredPriceData);
+                } else {
+                    return filteredPriceData;
+                }
             }
         } else {
-            let filteredCats = data && data[0] && filterDatasByCats(data[0].products.items, cats);
+            let filteredCats = [];
 
-            if (sorting) {
-                return data && data[0] && handleSorting(sorting, filteredCats);
-            } else {
-                return data && data[0] && filteredCats;
+            if (data && data[0]) {
+                filteredCats = filteredPriceData
+                    ? filterDatasByCats(filteredPriceData, cats)
+                    : filterDatasByCats(data[0].products.items, cats);
+
+                if (sorting) {
+                    return handleSorting(sorting, filteredCats);
+                } else {
+                    return filteredCats;
+                }
             }
         }
-    }, [cats, sorting, data]);
+    }, [cats, sorting, data, highestPrice, lowestPrice]);
 
     const handlePageClick = (event) => {
         const newOffset = dataItems && dataItems.length > 0 && (event.selected * 3) % dataItems.length;
@@ -57,7 +68,7 @@ const Shop = () => {
             ? setCurrentItems(dataItems.slice(itemOffset, endOffset))
             : setCurrentItems(null);
         dataItems && dataItems.length > 0 && setPageCount(Math.ceil(dataItems.length / 3));
-    }, [productState, data, sorting, cats, dataItems, itemOffset, pageCount]);
+    }, [productState, data, sorting, cats, dataItems, itemOffset, pageCount, highestPrice, lowestPrice]);
 
     return (
         <>
@@ -66,7 +77,18 @@ const Shop = () => {
                     <div className="col-lg-3">
                         <Categories searchParams={searchParams} setSearchParams={setSearchParams} />
 
-                        <PriceSlider />
+                        <PriceSlider
+                            minPrice={minPrice}
+                            setMinPrice={setMinPrice}
+                            maxPrice={maxPrice}
+                            setMaxPrice={setMaxPrice}
+                            highestPrice={highestPrice}
+                            setHighestPrice={setHighestPrice}
+                            lowestPrice={lowestPrice}
+                            setLowestPrice={setLowestPrice}
+                            filteredPriceData={filteredPriceData}
+                            setFilteredPriceData={setFilteredPriceData}
+                        />
                     </div>
 
                     <div className="col-lg-9">
