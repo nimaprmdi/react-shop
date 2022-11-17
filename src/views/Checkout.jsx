@@ -3,6 +3,7 @@ import Modal from "../components/common/Modal";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem, decreaseItem, clearAll } from "../redux/cart/cartAction";
 import axios from "axios";
+import Loader from "../components/common/Loader";
 
 const Checkout = () => {
     const [data, setData] = useState({});
@@ -16,6 +17,8 @@ const Checkout = () => {
     }, [productState, data]);
 
     const checkout = async () => {
+        setLoading(!loading);
+
         await axios
             .post(
                 "https://floating-depths-69711.herokuapp.com/checkout",
@@ -51,8 +54,11 @@ const Checkout = () => {
 
                                     <span className="btn btn-info mt-5">${cartState.priceTotal} Total Price</span>
 
-                                    <button onClick={checkout} className="btn btn-primary mt-5 mx-3">
+                                    <button onClick={checkout} className="btn btn-primary mt-5 mx-3 position-relative">
                                         Checkout
+                                        {loading && (
+                                            <Loader style={{ width: "20px", height: "auto", marginLeft: "8px" }} />
+                                        )}
                                     </button>
                                 </div>
 
