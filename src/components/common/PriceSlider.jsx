@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { filterDatasByPrice, getFinalPrice } from "../../helpers/handleFilter";
+import { compose, pipe } from "lodash/fp";
 
 const PriceSlider = () => {
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(0);
 
     const [highestPrice, setHighestPrice] = useState(0);
+    const [lowestPrice, setLowestPrice] = useState(0);
+
+    const [filteredData, setFilteredData] = useState([]);
 
     const productState = useSelector((state) => state.productState);
 
@@ -17,10 +21,19 @@ const PriceSlider = () => {
                 Number(((maxPrice * getFinalPrice(productState.products.record[0].products.items)) / 100).toFixed(0))
             );
 
-        productState &&
-            Object.keys(productState.products).length > 0 &&
-            console.log(filterDatasByPrice(productState.products.record[0].products.items, minPrice, maxPrice));
-    }, [productState, maxPrice]);
+        highestPrice &&
+            setLowestPrice(
+                Number(((minPrice * getFinalPrice(productState.products.record[0].products.items)) / 100).toFixed(0))
+            );
+
+        // Filter Data by price
+        Object.keys(productState.products).length > 0 &&
+            setFilteredData(
+                filterDatasByPrice(productState.products.record[0].products.items, lowestPrice, highestPrice)
+            );
+
+        console.log(filteredData);
+    }, [productState, maxPrice, minPrice]);
 
     useEffect(() => {
         dragElement(document.getElementById("mydiv"));
@@ -88,7 +101,7 @@ const PriceSlider = () => {
     return (
         <div className="div_parent">
             <div className="d-flex justify-content-between btn btn-primary">
-                <span>From ${minPrice}</span>
+                <span>From ${lowestPrice}</span>
                 <span>Until ${highestPrice}</span>
             </div>
 

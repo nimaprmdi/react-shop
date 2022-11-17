@@ -7,8 +7,7 @@ const filterDatasById = (datas, ids) => {
 };
 
 const filterDatasByPrice = (datas, minPrice, maxPrice) => {
-    console.log("datas", datas);
-    return datas && datas.length > 0 && datas.filter((data) => data.price >= minPrice && data.price <= maxPrice);
+    return datas.filter((data) => data.price >= minPrice && data.price <= maxPrice + 1);
 };
 
 const findDataById = (datas, id) => {
