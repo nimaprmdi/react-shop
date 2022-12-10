@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-shop/static/css/main.f238b029.css",
-    "main.js": "/react-shop/static/js/main.9be2776e.js",
+    "main.js": "/react-shop/static/js/main.0cf8a483.js",
     "static/media/shop_08.jpg": "/react-shop/static/media/shop_08.bad1c467edb237c6eb6d.jpg",
     "static/media/about-hero.svg": "/react-shop/static/media/about-hero.2f5265cb6ce22d2a8b76feabd91952e7.svg",
     "static/media/spinner.svg": "/react-shop/static/media/spinner.a77d0f05d7c80f36e1dfb5f024ab873a.svg",
@@ -11,10 +11,10 @@
     "static/media/slick.woff": "/react-shop/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/react-shop/index.html",
     "main.f238b029.css.map": "/react-shop/static/css/main.f238b029.css.map",
-    "main.9be2776e.js.map": "/react-shop/static/js/main.9be2776e.js.map"
+    "main.0cf8a483.js.map": "/react-shop/static/js/main.0cf8a483.js.map"
   },
   "entrypoints": [
     "static/css/main.f238b029.css",
-    "static/js/main.9be2776e.js"
+    "static/js/main.0cf8a483.js"
   ]
 }
